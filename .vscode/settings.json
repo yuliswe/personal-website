@@ -1,20 +1,39 @@
 {
+  "files.exclude": {
+    "amplify/.config": true,
+    "amplify/**/*-parameters.json": true,
+    "amplify/**/amplify.state": true,
+    "amplify/**/transform.conf.json": true,
+    "amplify/#current-cloud-backend": true,
+    "amplify/backend/amplify-meta.json": true,
+    "amplify/backend/awscloudformation": true,
+    ".nodevenv": true,
+    ".venv": true,
+    ".zcompdump": true,
+    ".zsh_history": true
+  },
   "terminal.integrated.profiles.osx": {
     "bash": {
       "path": "bash",
-      "args": ["-l"],
+      "args": [
+        "-l"
+      ],
       "icon": "terminal-bash"
     },
     "zsh": {
       "path": "zsh",
-      "args": ["-l"],
+      "args": [
+        "-l"
+      ],
       "env": {
         "ZDOTDIR": "${workspaceFolder}"
       }
     },
     "fish": {
       "path": "fish",
-      "args": ["-l"]
+      "args": [
+        "-l"
+      ]
     },
     "tmux": {
       "path": "tmux",
@@ -24,11 +43,5 @@
       "path": "pwsh",
       "icon": "terminal-powershell"
     }
-  },
-  "files.exclude": {
-    ".nodevenv": true,
-    ".venv": true,
-    ".zcompdump": true,
-    ".zsh_history": true
   }
 }
