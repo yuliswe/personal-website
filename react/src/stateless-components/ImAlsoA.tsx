@@ -1,14 +1,11 @@
 import { Box, Chip, Link, Stack, Typography } from "@mui/material";
 import React, { MouseEvent } from "react";
 import roles from "../text/rols";
+import { intersects } from "../utils";
 type _Props = {
   highlightKeywords: string[];
   onClick: (e: MouseEvent, keyword: string[], highlighted: boolean) => void;
 };
-
-function intersects<T>(A: T[], B: T[]): boolean {
-  return A.some((a) => B.includes(a));
-}
 
 export class ImAlsoA extends React.PureComponent<_Props> {
   render() {
@@ -22,10 +19,9 @@ export class ImAlsoA extends React.PureComponent<_Props> {
         </Typography>
         <Stack direction='row' flexWrap='wrap' justifyItems='flex-start' mt={2}>
           {roles.map(({ title, keywords }, index) => {
-            let highlighted = intersects(
-              keywords,
-              this.props.highlightKeywords
-            );
+            let highlighted =
+              this.props.highlightKeywords.includes("*") ||
+              intersects(keywords, this.props.highlightKeywords);
             return (
               <Box key={index} ml={0} pr={0.5} pt={0.5} style={{ margin: 0 }}>
                 <Chip

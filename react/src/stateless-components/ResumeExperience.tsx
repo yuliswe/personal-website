@@ -12,10 +12,6 @@ type _Props = {
 };
 
 export class ResumeExperience extends React.PureComponent<_Props> {
-  constructor(props: _Props) {
-    super(props);
-  }
-
   get smallScreen(): boolean {
     return this.props.mediaQuery?.sm || false;
   }
@@ -52,11 +48,14 @@ export class ResumeExperience extends React.PureComponent<_Props> {
           </Grid>
         </Grid>
         <Box component='ul' my={1} pl={2}>
-          {this.props.children.map((child, index) => (
-            <Box key={index} component='li' pl={1}>
-              {child}
-            </Box>
-          ))}
+          {this.props.children.map(
+            (child, index) =>
+              child && (
+                <Box key={index} component='li' pl={1}>
+                  {child}
+                </Box>
+              )
+          )}
         </Box>
       </Box>
     );

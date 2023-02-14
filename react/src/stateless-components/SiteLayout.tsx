@@ -15,14 +15,18 @@ export class SiteLayout extends React.PureComponent<_Props> {
   render() {
     return (
       <React.Fragment>
-        <Container maxWidth='xl' sx={{ padding: 0, margin: 0 }}>
+        <Container maxWidth='xl' sx={{ padding: 0, marginBottom: 0 }}>
           <Paper
             sx={{
               backgroundColor: "#ddd",
               marginTop: this._context.mediaQuery.xs ? 0 : 3,
             }}>
             {this.props.appBar}
-            <Box component='main' my={10} mx={20} pb={10}>
+            <Box
+              component='main'
+              my={this._context.mediaQuery.xs ? 0 : 10}
+              mx={this._context.mediaQuery.xs ? 10 : 20}
+              pb={10}>
               {this.props.body}
             </Box>
           </Paper>

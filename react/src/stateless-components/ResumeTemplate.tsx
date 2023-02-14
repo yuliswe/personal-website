@@ -1,4 +1,4 @@
-import { Container, Paper, Typography } from "@mui/material";
+import { Container, Link, Paper, Typography } from "@mui/material";
 import { Stack } from "@mui/system";
 import React from "react";
 import { ResumeExperience } from "./ResumeExperience";
@@ -14,13 +14,22 @@ import educationData from "../text/education";
 import skillData from "../text/skills";
 import { ResumeSkills } from "./ResumeSkills";
 import { AppContextType, mediaQuery } from "../AppContext";
+import { Config } from "../config";
+import { intersects, keywordShouldShow } from "../utils";
 
 type _Props = {
   fixedMargin?: string;
   id?: string;
   mediaQuery?: typeof mediaQuery;
+  urlKeywords: string[];
+  isPrintedVersion: boolean;
+  jobTitle: string;
+  websiteUrl: URL;
 };
 
+/**
+ * The PDF style resume section.
+ */
 export class ResumeTemplate extends React.PureComponent<_Props> {
   paperRef = React.createRef<HTMLDivElement>();
   render() {
@@ -28,24 +37,47 @@ export class ResumeTemplate extends React.PureComponent<_Props> {
       <Paper id={this.props.id} ref={this.paperRef} sx={{ borderRadius: 0.5 }}>
         <Stack spacing={3} m={this.props.fixedMargin || 10}>
           <ResumeHeader
-            jobTitle='Senior Software Enginner'
-            companyShortCode='xxx'
+            jobTitle={this.props.jobTitle}
+            websiteUrl={this.props.websiteUrl}
             mediaQuery={this.props.mediaQuery}
           />
           <ResumeSection title='Employment'>
-            {employmentData.map((item, index) => (
-              <ResumeExperience
-                key={index}
-                jobTitle={item.title}
-                company={item.company}
-                location={item.location}
-                date={item.date}
-                mediaQuery={this.props.mediaQuery}>
-                {item.bulletPoints.map((x, index) => (
-                  <Typography key={index}>{x.text}</Typography>
-                ))}
-              </ResumeExperience>
-            ))}
+            {employmentData.map(
+              (exp, index) =>
+                keywordShouldShow(this.props.urlKeywords, exp.keywords) && (
+                  <Stack key={index}>
+                    {exp.keywords && Config.displayKeywods && (
+                      <Typography color='red'>
+                        {exp.keywords.join(", ")}
+                      </Typography>
+                    )}
+                    <ResumeExperience
+                      key={index}
+                      jobTitle={exp.title}
+                      company={exp.company}
+                      location={exp.location}
+                      date={exp.date}
+                      mediaQuery={this.props.mediaQuery}>
+                      {exp.bulletPoints.map(
+                        (pt, index) =>
+                          keywordShouldShow(
+                            this.props.urlKeywords,
+                            pt.keywords
+                          ) && (
+                            <Stack key={index}>
+                              <Typography>{pt.text}</Typography>
+                              {Config.displayKeywods && (
+                                <Typography color='blue'>
+                                  {pt.keywords?.join(", ")}
+                                </Typography>
+                              )}
+                            </Stack>
+                          )
+                      )}
+                    </ResumeExperience>
+                  </Stack>
+                )
+            )}
           </ResumeSection>
           <ResumeSection title='Education' className='keep-together'>
             {educationData.map((item, index) => (
@@ -63,15 +95,25 @@ export class ResumeTemplate extends React.PureComponent<_Props> {
             ))}
           </ResumeSection>
           <ResumeSection title='Software Enginnering'>
-            {skillData.map((item, index) => (
-              <ResumeSkills key={index} title={item.title}>
-                {item.bulletPoints.map((x, index) => (
-                  <Typography key={index}>{x}</Typography>
-                ))}
-              </ResumeSkills>
-            ))}
+            {skillData.map(
+              (item, index) =>
+                keywordShouldShow(this.props.urlKeywords, item.keywords) && (
+                  <Stack key={index}>
+                    {Config.displayKeywods && (
+                      <Typography color='red'>
+                        {Config.displayKeywods && item.keywords.join(", ")}
+                      </Typography>
+                    )}
+                    <ResumeSkills key={index} title={item.title}>
+                      {item.bulletPoints.map((x, index) => (
+                        <Typography key={index}>{x}</Typography>
+                      ))}
+                    </ResumeSkills>
+                  </Stack>
+                )
+            )}
           </ResumeSection>
-          <ResumeSection title='Products'>
+          {/* <ResumeSection title='Products'>
             <ResumeExperience
               jobTitle='B.Math in Computer Science'
               company='University of Waterloo'
@@ -91,7 +133,16 @@ export class ResumeTemplate extends React.PureComponent<_Props> {
                 Analysis, Machine Learning, Conflicts Resolution.
               </Typography>
             </ResumeExperience>
-          </ResumeSection>
+          </ResumeSection> */}
+          {this.props.isPrintedVersion && (
+            <Typography variant='caption'>
+              This is a highlighted version of a complete resume. Visit
+              <Link href={this.props.websiteUrl.href} px={0.5}>
+                {this.props.websiteUrl.href}
+              </Link>{" "}
+              to learn more about me.
+            </Typography>
+          )}
         </Stack>
       </Paper>
     );

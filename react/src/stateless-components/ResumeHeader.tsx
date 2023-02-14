@@ -4,16 +4,16 @@ import React from "react";
 import { mediaQuery } from "../AppContext";
 type _Props = {
   jobTitle: string;
-  companyShortCode: string;
   mediaQuery?: typeof mediaQuery;
+  websiteUrl: URL;
 };
 export class ResumeHeader extends React.Component<_Props> {
-  constructor(props: _Props) {
-    super(props);
-  }
-
   get smallScreen(): boolean {
     return this.props.mediaQuery?.sm || false;
+  }
+
+  get companyUrlBare(): string {
+    return this.props.websiteUrl.host + this.props.websiteUrl.pathname;
   }
 
   render() {
@@ -56,12 +56,12 @@ export class ResumeHeader extends React.Component<_Props> {
               justifyContent={this.smallScreen ? "center" : "left"}>
               <QRCodeCanvas
                 size={50}
-                value={`https://${this.props.companyShortCode}.yuSE.dev`}></QRCodeCanvas>
+                value={this.props.websiteUrl.href}></QRCodeCanvas>
               <Box>
                 <Typography variant='h6'>Contact</Typography>
                 <Typography>ylilarry@gmail.com</Typography>
                 <Typography>(226) 978-5620</Typography>
-                <Typography>{this.props.companyShortCode}.yuSE.dev</Typography>
+                <Typography>{this.companyUrlBare}</Typography>
               </Box>
             </Stack>
           </Grid>

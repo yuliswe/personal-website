@@ -1,18 +1,18 @@
 export default [
   {
     title: "I am an expert in fullstack development with:",
-    alwayShow: true,
+    keywords: ["fullstack", "web", "javascript"],
     bulletPoints: [
       "9+ years of experience",
       "JavaScript / TypeScript / NodeJS",
-      "ReactJS / VueJS",
-      "NPM / Webpack / Babel / ESLint",
+      "ReactJS / VueJS frameworks",
+      "NPM / Webpack / Babel / ESLint configurations",
       "Responsive and mobile-first design",
     ],
   },
   {
     title: "Backend and API Development",
-    alwayShow: true,
+    keywords: ["backend", "api", "fullstack"],
     bulletPoints: [
       "REST / GraphQL API design and development",
       "HTTP / WebSocket protocols",
@@ -22,7 +22,7 @@ export default [
   },
   {
     title: "Mobile Development",
-    alwayShow: true,
+    keywords: ["mobile", "ios", "android"],
     bulletPoints: [
       "3+ years of experience",
       "Swift / Flutter / React Native apps",
@@ -30,7 +30,6 @@ export default [
   },
   // {
   //   title: "Data Science and Quantitative Research",
-  //   alwayShow: true,
   //   bulletPoints: [
   //     "3+ years of experience with mobile app development using React Native and Flutter",
   //     "Experience with native mobile app development using Swift and Kotlin",
@@ -39,19 +38,39 @@ export default [
   // },
   {
     title: "Programming Languages",
-    alwayShow: true,
+    keywords: ["fullstack", "programminglanguages"],
     bulletPoints: [
       "Expertise in JavaScript",
       "5+ years of experience with C++",
-      "Experience with Swift, Kotlin, and Dart",
+      "Experienced with Swift, Kotlin, and Dart",
       "Expertise in Python",
+      "Proficiency in Go",
       "Experienced with Object-Oriented Programming patterns and principles",
-      "Familiarity with functional programming languages such as Lisp and Haskell",
+      "Proficiency with functional programming languages such as Lisp and Haskell",
+    ],
+  },
+  {
+    title: "Data Science",
+    keywords: ["datascience"],
+    bulletPoints: [
+      "Familiarity with pytorch and scikit-learn",
+      "Familiarity with machine learning and deep learning models",
+      "Experienced with data analysis and visualization",
+      "Experienced with numpy, scipy, pandas, and matplotlib",
+    ],
+  },
+  {
+    title: "Cloud Computing",
+    keywords: ["cloud", "cloudcomputing"],
+    bulletPoints: [
+      "Experienced with AWS EC2, S3, and Lambda in production environment",
+      "Familiarity containerization with Docker and Kubernetes",
+      "Experienced with data analysis and visualization",
     ],
   },
   {
     title: "Project Management",
-    alwayShow: true,
+    keywords: ["fullstack", "projectmanagement"],
     bulletPoints: [
       "Test-driven development and continuous integration with GitHub Actions",
       "Agile development methodologies such as Scrum and Kanban",
@@ -62,7 +81,7 @@ export default [
   },
   {
     title: "Operating Systems",
-    alwayShow: true,
+    keywords: ["operatingsystems"],
     bulletPoints: [
       "Linux, Windows, and macOS for development and deployment",
       "Command-line tools such as Bash, CMD, and PowerShell",
@@ -70,10 +89,16 @@ export default [
   },
   {
     title: "Communication",
-    alwayShow: true,
+    keywords: [
+      "communication",
+      "teamwork",
+      "leadership",
+      "customersupport",
+      "projectmanagement",
+    ],
     bulletPoints: [
       "Excellent communication skills, both written and verbal in English",
-      "Familarity with remote work environment and working with a distributed teams",
+      "Familiarity with remote work environments and working with distributed teams",
       "Language: English, Mandarin (native)",
     ],
   },

@@ -43,17 +43,48 @@ export const roles = [
     title: "System Design",
     keywords: ["systemdesign"],
   },
-  {
-    title: "Algorithmic/AI Trading",
-    keywords: ["algorithmic", "ai", "trading"],
-  },
+  // {
+  //   title: "Algorithmic/AI Trading",
+  //   keywords: ["algorithmic", "ai", "trading"],
+  // },
   {
     title: "Amazon Web Services",
-    keywords: ["aws", "cloud"],
+    keywords: ["aws", "cloud", "cloudcomputing"],
   },
   {
     title: "Distributed Systems",
     keywords: ["distributedsystems"],
   },
+  {
+    title: "Data Science",
+    keywords: ["datascience"],
+  },
+  {
+    title: "Networking",
+    keywords: ["networking"],
+  },
+  {
+    title: "Communication",
+    keywords: ["communication"],
+  },
+  {
+    title: "Teaching",
+    keywords: ["teaching", "tutoring"],
+  },
+  {
+    title: "Research",
+    keywords: ["research"],
+  },
+  {
+    title: "Select All",
+    keywords: ["*"],
+  },
 ];
+export const allKeywords = new Set<string>();
+for (const role of roles) {
+  for (const keyword of role.keywords) {
+    allKeywords.add(keyword);
+  }
+}
+
 export default roles;

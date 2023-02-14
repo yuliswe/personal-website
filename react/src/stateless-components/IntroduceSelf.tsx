@@ -30,7 +30,7 @@ export class IntroduceSelf extends React.Component {
           <Grid item xs={12} sm={6} md={7}>
             <Typography variant='h3'>Yu here!</Typography>
             <Typography variant='subtitle1'>
-              Fuellled by a passion for designing and compiling products, I have
+              Fuelled by a passion for designing and compiling products, I have
               a deep desire to excel and continuously improve in my work. Learn
               more about my journey below.
             </Typography>

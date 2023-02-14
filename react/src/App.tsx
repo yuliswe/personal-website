@@ -9,8 +9,32 @@ import "@fontsource/roboto/900.css";
 import "./App.css";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import { AppContextType } from "./AppContext";
+import {
+  RouterProvider,
+  createBrowserRouter,
+  useLocation,
+  useNavigate,
+  useParams,
+} from "react-router-dom";
+import React from "react";
+import { Helmet, HelmetProvider } from "react-helmet-async";
+
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <WithContext children={<HomePage />} />,
+  },
+  {
+    path: "/:company",
+    element: <WithContext children={<HomePage />} />,
+  },
+]);
 
 function App() {
+  return <RouterProvider router={router} />;
+}
+
+function WithContext(props: React.PropsWithChildren) {
   const defaultTheme = createTheme();
   const mediaQueryXs = useMediaQuery(defaultTheme.breakpoints.down("sm"));
   const mediaQuerySm = useMediaQuery(defaultTheme.breakpoints.down("md"));
@@ -21,7 +45,7 @@ function App() {
     spacing: mediaQuerySm ? 2 : mediaQueryMd ? 4 : 8,
     palette: {
       background: {
-        default: "black",
+        default: "#333",
         paper: "#ffffff90",
       },
     },
@@ -39,17 +63,32 @@ function App() {
   const specialThemeWithConstantSpacing = createTheme({
     spacing: 8,
   });
+
+  const location = useLocation();
+  const navigate = useNavigate();
+  const params = useParams();
   return (
-    <AppContextType.Provider
-      value={{
-        mediaQuery: { sm: mediaQuerySm, md: mediaQueryMd, xs: mediaQueryXs },
-        specialThemeWithConstantSpacing,
-      }}>
-      <ThemeProvider theme={theme}>
-        <CssBaseline />
-        <HomePage></HomePage>
-      </ThemeProvider>
-    </AppContextType.Provider>
+    <HelmetProvider>
+      <AppContextType.Provider
+        value={{
+          mediaQuery: {
+            sm: mediaQuerySm,
+            md: mediaQueryMd,
+            xs: mediaQueryXs,
+          },
+          routes: {
+            location,
+            navigate,
+            params,
+          },
+          specialThemeWithConstantSpacing,
+        }}>
+        <ThemeProvider theme={theme}>
+          <CssBaseline />
+          {props.children}
+        </ThemeProvider>
+      </AppContextType.Provider>
+    </HelmetProvider>
   );
 }
 

@@ -1,31 +1,26 @@
-import {
-  Box,
-  Button,
-  Grid,
-  IconButton,
-  Stack,
-  ThemeProvider,
-} from "@mui/material";
+import { Box, Button, Grid, Stack, ThemeProvider } from "@mui/material";
 import React from "react";
 import { ImAlsoA } from "../stateless-components/ImAlsoA";
 import { IntroduceSelf } from "../stateless-components/IntroduceSelf";
 import { MyCareerSoFar } from "../stateless-components/MyCareerSoFar";
-import { ResumeExperience } from "../stateless-components/ResumeExperience";
-import { ResumeHeader } from "../stateless-components/ResumeHeader";
 import { ResumeTemplate } from "../stateless-components/ResumeTemplate";
-import { ResumeSection } from "../stateless-components/ResumeSection";
 import queryString from "query-string";
-import { MyStories, MyStoriesData } from "../stateless-components/MyStories";
-import myStoriesData from "../text/stories";
-import { WhyHireMe } from "../stateless-components/WhyHireMe";
+import { MyStories } from "../stateless-components/MyStories";
+import myStoriesData, { MyStory } from "../text/stories";
+import { MyCareerGoal } from "../stateless-components/MyCareerGoal";
 import { jsPDF } from "jspdf";
 import PrintIcon from "@mui/icons-material/Print";
 import { AppContextType, defaultAppContext } from "../AppContext";
+import { allKeywords } from "../text/rols";
+import { WhyConsiderMe } from "../stateless-components/WhyConsiderMe";
+import { whyConsiderMe } from "../text/why-consider-me";
+import { companyKeywords } from "../text/company-keywords-map";
+import { Helmet } from "react-helmet-async";
 type _Props = {};
 
 type _State = {
   urlKeywords: string[];
-  myStories: MyStoriesData[];
+  myStories: MyStory[];
 };
 
 function splitPages(n: Element, maxHeight: number, vMargin: number) {
@@ -55,7 +50,7 @@ function splitPages(n: Element, maxHeight: number, vMargin: number) {
         }
       }
     }
-    return _insertSpace(n, top + maxHeight - vMargin);
+    return _insertSpace(n, top + maxHeight - 2 * vMargin);
   }
 
   let nPages = 1;
@@ -73,11 +68,10 @@ export class ResumePage extends React.Component<_Props, _State> {
     return this.context as any;
   }
 
-  getHighlightKeywords(): string[] {
+  getKeywordsFromUrl(): string[] {
     let {
       query: { keywords },
     } = queryString.parseUrl(document.location.href, this.urlParseOptions);
-    console.log(keywords);
     if (keywords == null) {
       return [];
     }
@@ -87,7 +81,57 @@ export class ResumePage extends React.Component<_Props, _State> {
     return keywords.filter((x) => x) as string[];
   }
 
+  getCompanyFromUrl(): string | null {
+    if (this._context.routes?.params?.["company"] != null) {
+      return this._context.routes.params["company"];
+    }
+    let {
+      query: { company },
+    } = queryString.parseUrl(document.location.href, this.urlParseOptions);
+    if (company == null) {
+      return null;
+    }
+    if (typeof company === "string") {
+      return company;
+    }
+    return null;
+  }
+
+  getKeywordsFromUrlCompany(): string[] {
+    let com = this.getCompanyFromUrl();
+    if (com != null) {
+      let data = companyKeywords[com];
+      if (data != null) {
+        return data.defaultKeywords;
+      }
+    }
+    return ["*"];
+  }
+
+  getJobTitle(): string {
+    let keywords = this.getKeywordsFromUrl();
+    let com = this.getCompanyFromUrl();
+    if (com != null) {
+      let data = companyKeywords[com];
+      if (data != null) {
+        return data.jobTitle;
+      }
+    }
+    return "Senior Software Engineer";
+  }
+
+  getHighlightKeywords(): string[] {
+    let keywords = this.getKeywordsFromUrl();
+    keywords.push(...this.getKeywordsFromUrlCompany());
+    return Array.from(new Set(keywords));
+  }
+
   setHighlightKeywords(keywords: string[]): void {
+    if (keywords.includes("*")) {
+      keywords = Array.from(allKeywords);
+    }
+    keywords.push(...this.getKeywordsFromUrlCompany());
+    keywords = Array.from(new Set(keywords));
     let location = queryString.stringifyUrl(
       {
         url: document.location.href,
@@ -103,8 +147,22 @@ export class ResumePage extends React.Component<_Props, _State> {
 
   removeUrlKeywords(keywords: string[]): void {
     let oldKeywords = this.getHighlightKeywords();
-    let newKeywords = oldKeywords.filter((x) => !keywords.includes(x));
-    this.setHighlightKeywords(newKeywords);
+    if (keywords.includes("*")) {
+      this.setHighlightKeywords([]);
+    } else {
+      let newKeywords = oldKeywords.filter(
+        (x) => !keywords.includes(x) && x !== "*"
+      );
+      this.setHighlightKeywords(newKeywords);
+    }
+  }
+
+  getWebsiteUrlForCompany(): URL {
+    let com = this.getCompanyFromUrl();
+    if (com != null) {
+      return new URL(`https://yuli.SE/${com}`);
+    }
+    return new URL("https://yuli.SE/");
   }
 
   get urlParseOptions() {
@@ -158,9 +216,13 @@ export class ResumePage extends React.Component<_Props, _State> {
       compress: true,
     });
     pdf.setFont("Helvetica");
+    splitPages(
+      this.resumeRef.current!.paperRef!.current as HTMLElement,
+      1056,
+      50
+    );
     pdf.html(this.resumeRef.current?.paperRef.current as HTMLElement, {
       callback: (doc) => {
-        console.log(doc.getFontList());
         doc.save();
       },
       x: 0,
@@ -172,57 +234,84 @@ export class ResumePage extends React.Component<_Props, _State> {
     });
   }
 
+  renderWhyConsiderMe() {
+    let com = this.getCompanyFromUrl();
+    if (com == null) {
+      return false;
+    }
+    let data = whyConsiderMe[com];
+    if (data == null) {
+      return false;
+    }
+    return <WhyConsiderMe {...data}></WhyConsiderMe>;
+  }
+
   render() {
     return (
-      <Box zIndex={1}>
-        <Box my={10}>
+      <React.Fragment>
+        <Helmet>
+          <title>Yu | {this.getJobTitle()}</title>
+        </Helmet>
+        <Stack zIndex={1} spacing={10}>
           <IntroduceSelf></IntroduceSelf>
-        </Box>
-        <Grid container columns={2} spacing={10}>
-          <Grid item md={1}>
-            <MyCareerSoFar></MyCareerSoFar>
-          </Grid>
-          <Grid item md={1}>
-            <ImAlsoA
-              highlightKeywords={this.state.urlKeywords}
-              onClick={(e, keywords, highlighted) =>
-                highlighted
-                  ? this.removeUrlKeywords(keywords)
-                  : this.addUrlKeywords(keywords)
-              }></ImAlsoA>
-          </Grid>
-          <Grid item md={2}>
-            <WhyHireMe></WhyHireMe>
-          </Grid>
-        </Grid>
-        <Stack my={10} spacing={2}>
-          <Button
-            onClick={() => this.downloadPdf()}
-            startIcon={<PrintIcon></PrintIcon>}>
-            Download Resume
-          </Button>
-          <ResumeTemplate
-            mediaQuery={this._context.mediaQuery}></ResumeTemplate>
-        </Stack>
-        <Stack
-          my={10}
-          spacing={2}
-          width='8.5in'
-          top={0}
-          zIndex={-1}
-          visibility='hidden'
-          position='fixed'>
-          <ThemeProvider theme={this._context.specialThemeWithConstantSpacing!}>
+          {this.renderWhyConsiderMe()}
+          <Box>
+            {/* This is required. Grid cannot be a direct child of Stack. */}
+            <Grid container spacing={10}>
+              <Grid item md={6}>
+                <MyCareerSoFar></MyCareerSoFar>
+              </Grid>
+              <Grid item md={6}>
+                <ImAlsoA
+                  highlightKeywords={this.state.urlKeywords}
+                  onClick={(e, keywords, highlighted) =>
+                    highlighted
+                      ? this.removeUrlKeywords(keywords)
+                      : this.addUrlKeywords(keywords)
+                  }></ImAlsoA>
+              </Grid>
+            </Grid>
+          </Box>
+          <MyCareerGoal></MyCareerGoal>
+          <Stack my={10} spacing={2}>
+            <Button
+              onClick={() => this.downloadPdf()}
+              startIcon={<PrintIcon></PrintIcon>}>
+              Download Resume
+            </Button>
             <ResumeTemplate
-              id='force-font-for-pdf'
-              ref={this.resumeRef}
-              fixedMargin='50pt'></ResumeTemplate>
-          </ThemeProvider>
+              mediaQuery={this._context.mediaQuery}
+              jobTitle={this.getJobTitle()}
+              websiteUrl={this.getWebsiteUrlForCompany()}
+              isPrintedVersion={false}
+              urlKeywords={this.state.urlKeywords}></ResumeTemplate>
+          </Stack>
+          <Box
+            width='8.5in'
+            top={0}
+            left={0}
+            position='fixed'
+            zIndex={-1}
+            visibility='hidden'>
+            <ThemeProvider
+              theme={this._context.specialThemeWithConstantSpacing!}>
+              <ResumeTemplate
+                id='force-font-for-pdf'
+                jobTitle={this.getJobTitle()}
+                ref={this.resumeRef}
+                websiteUrl={this.getWebsiteUrlForCompany()}
+                isPrintedVersion={true}
+                urlKeywords={this.state.urlKeywords}
+                fixedMargin='50pt'></ResumeTemplate>
+            </ThemeProvider>
+          </Box>
+          <Stack my={10} spacing={2}>
+            <MyStories
+              stories={this.state.myStories}
+              urlKeywords={this.state.urlKeywords}></MyStories>
+          </Stack>
         </Stack>
-        <Stack my={10} spacing={2}>
-          <MyStories stories={this.state.myStories}></MyStories>
-        </Stack>
-      </Box>
+      </React.Fragment>
     );
   }
 }

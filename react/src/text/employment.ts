@@ -1,25 +1,36 @@
-export const employtment = [
+type Employment = {
+  title: string;
+  company: string;
+  location: string;
+  date: string;
+  keywords: string[];
+  bulletPoints: {
+    text: string;
+    keywords: string[];
+  }[];
+};
+export const employment: Employment[] = [
   {
     title: "Technical Director",
     company: "KaleidoDeal Inc.",
     location: "Waterloo, ON",
     date: "June/2021 - July/2022",
-    keywords: ["projectmanagement", "leadership"],
+    keywords: ["*"],
     bulletPoints: [
       {
-        text: "Excellent leadership in applying the Scrum/Agile principles to ensure that the developer team stayed on track for the project timeline; made sure that employees were content with the work environment and culture. ",
+        text: "Excellent leadership and product management skills in applying the Scrum/Agile principles to ensure that the developer team stayed on track for the project timeline; ensured that employees were content with the work environment and culture. ",
         keywords: ["projectmanagement", "leadership"],
       },
       {
-        text: "Well-communicated with stakeholders to decide on the app's requirements, and coordinated the team to design and implement the user interface and experience; applied documentation-as-requirement strategy so that the product's requirements were clearly communicated across the team.",
+        text: "Well-communicated with stakeholders to decide on the app's requirements; documented the requirements clearly so that the product's requirements were communicated across the team.",
         keywords: ["communication", "projectmanagement", "leadership"],
       },
       {
-        text: "Demonstrated system design abilities in designing and implementing server APIs; designed a framework that simplified the client-database communication and improved server-side security; greatly reduced the work needed for creating a minimum viable product.",
+        text: "Designed and implemented the APIs; designed a framework that simplified the client-database communication and improved server-side security.",
         keywords: ["systemdesign", "api", "fullstack"],
       },
       {
-        text: "Coded the mobile app with Flutter and the server with Django; progressively reviewed and made quality improvements to the user experience.",
+        text: "Implemented a mobile app with the UI in Flutter and an API server in Python/Django; Worked with the UI designer to create a beautiful and intuitive user interface.",
         keywords: ["mobile", "ios", "django", "flutter", "fullstack"],
       },
     ],
@@ -29,23 +40,32 @@ export const employtment = [
     company: "SAP Canada",
     location: "Waterloo, ON",
     date: "Sept/2019 - May/2021",
-    keywords: ["projectmanagement", "leadership"],
+    keywords: ["*"],
     bulletPoints: [
       {
-        text: "Displayed proficiency in C++ when implementing functionalities for the client libraries of the SAP HANA database.",
+        text: "Implemented features of client libraries in C++ for the SAP HANA database; ensured the high performance and error resiliency of the client by implementing proprietary networking protocols and fallback algorithms.",
         keywords: ["c++", "cpp"],
       },
       {
-        text: "Well-communicated with stakeholders to decide on the app's requirements, and coordinated the team to design and implement the user interface and experience; applied documentation-as-requirement strategy so that the product's requirements were clearly communicated across the team.",
-        keywords: ["communication", "projectmanagement", "leadership"],
+        text: "Created unit and integration tests involving complex infrastructures and database operations; demonstrated the ability to write tests that fully cover the code base.",
+        keywords: ["testing", "fullstack"],
       },
       {
-        text: "Communicated with the team and the stakeholders to provide regular progress reports and feedbacks; ensured the product satisfied the requirements and was delivered on time.",
-        keywords: ["communication", "projectmanagement"],
+        text: "Maintained code that was compatible to different versions of the databases and legacy APIs; demonstrated the ability to understand and maintain complex legacy code.",
+        keywords: ["systemdesign", "api", "fullstack"],
       },
       {
-        text: "Experienced in resolving customers issues by regularly triaging reported bugs to the correct person on the team and keeping the customers updated for the resolution progress.",
-        keywords: ["communication", "projectmanagement", "leadership"],
+        text: "Communicated with the team leader and the stakeholders to provide regular progress reports and feedback; ensured the product satisfied the requirements and was delivered on time.",
+        keywords: ["communication", "projectmanagement", "teamwork"],
+      },
+      {
+        text: "Experienced in providing technical support to customers; responsible for reported bugs to the correct person on the team and keeping the customers updated for the progress of resolution.",
+        keywords: [
+          "communication",
+          "projectmanagement",
+          "leadership",
+          "customersupport",
+        ],
       },
     ],
   },
@@ -54,31 +74,37 @@ export const employtment = [
     company: "University of Waterloo",
     location: "ON",
     date: "Sept/2015 - May/2018",
-    keywords: ["projectmanagement", "leadership"],
+    keywords: ["assistantship", "research"],
     bulletPoints: [
       {
-        text: "Wrote C++ code that implemented a large integer arithmetic computation algorithem, heavily invovled memory manipulation and data structures. Displayed proficiency in C++ and data structure algorithm.",
-        keywords: ["c++", "cpp"],
+        text: "Wrote C++ code that implemented a large integer arithmetic computation algorithm, heavily involved memory manipulation and data structures. Displayed proficiency in C++ and data structure algorithm.",
+        keywords: ["c++", "cpp", "research"],
       },
       {
         text: "Documented the code and the algorithm in a report that was reviewed by professors. Demonstrated the ability to write technical reports that are clear and concise.",
-        keywords: ["documentation", "reportwriting", "communication"],
+        keywords: [
+          "documentation",
+          "reportwriting",
+          "communication",
+          "research",
+        ],
       },
       {
-        text: "Regularly reported the progress of the project in a supervisor meeting. Presented ideas to audience in a clear manner.",
+        text: "Regularly reported the progress of the project in a supervisor meeting. Presented ideas to audiences in a clear manner.",
+        keywords: ["communication", "presentation", "leadership", "research"],
       },
     ],
   },
   {
-    title: "ReactJS Developer",
+    title: "Fullstack Engineer",
     company: "University of Waterloo",
     location: "ON",
     date: "Jan/2015 - May/2017",
-    keywords: ["projectmanagement", "leadership"],
+    keywords: ["*"],
     bulletPoints: [
       {
         text: "Implemented a ReactJS web application that allowed students to compile and run their homework C code in the browser. Wrote code in HTML, CSS and JavaScript, with the ReactJS framework.",
-        keywords: ["javascript", "reactjs", "fullstack", "web"],
+        keywords: ["javascript", "reactjs", "fullstack", "web", "*"],
       },
       {
         text: "Utilized WebSockets to allow the web application to communicate with the server in real-time.",
@@ -95,14 +121,15 @@ export const employtment = [
     company: "University of Waterloo",
     location: "ON",
     date: "Sept/2014 - May/2017",
-    keywords: ["projectmanagement", "leadership"],
+    keywords: ["assistantship", "teaching"],
     bulletPoints: [
       {
-        text: "Worked with students daily to help them understand the course material and improve their programming skills. Demonstrated the ability to communicate technical concepts to non-technical audience.",
-        keywords: ["communication"],
+        text: "Worked with students daily to help them understand the course material and improve their programming skills. Demonstrated the ability to communicate technical concepts to non-technical audiences.",
+        keywords: ["communication", "teaching"],
       },
       {
-        text: "Led the weekly meetings with Teaching Assistants to discuss the course material and the students' progress. Demonstrated leadership skills in leading the team of Teaching Assistants.",
+        text: "Led the weekly meetings with Teaching Assistants to discuss the course material and the student's progress. Demonstrated leadership skills in leading the team of Teaching Assistants.",
+        keywords: ["leadership", "teamwork", "teaching"],
       },
     ],
   },
@@ -111,18 +138,25 @@ export const employtment = [
     company: "Everz Microsystem",
     location: "Burlington, ON",
     date: "Jan/2014 - May/2014",
-    keywords: ["projectmanagement", "leadership"],
+    keywords: ["*"],
     bulletPoints: [
       {
-        text: "Developed the company's internal platform system for employees to communicate to their supervisors. Wrote code in HTML, CSS and JavaScript, with the AngularJS framework.",
-        keywords: ["javascript", "angularjs", "fullstack", "fullstack", "web"],
+        text: "Developed the company's internal platform system for employees to communicate with their supervisors. Wrote code in HTML, CSS and JavaScript, with the AngularJS framework.",
+        keywords: [
+          "javascript",
+          "angularjs",
+          "fullstack",
+          "fullstack",
+          "web",
+          "*",
+        ],
       },
       {
-        text: "Demonstrated teamwork skills in regularly reporting to the project leader and working with the team of developers to ensure a fast and satisfactory delivery of the software product.",
+        text: "Demonstrated teamwork skills in regular reports to the project leader and working with the team of developers to ensure a fast and satisfactory delivery of the software product.",
         keywords: ["communication"],
       },
     ],
   },
 ];
 
-export default employtment;
+export default employment;

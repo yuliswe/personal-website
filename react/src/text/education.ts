@@ -9,7 +9,7 @@ export default [
     bulletPoints: [
       "Bachelor of Mathematics, major in Computer Science (CO-OP).",
       "Joint majors in Combinatorics & Optimization and Computational Mathematics.",
-      "Relavent courses: Software Testing, Quality Assurance & Maintenance, Operation System, Algorithms, Algorithm Design & Analysis, Machine Learning, Conflicts Resolution.",
+      "Relevant courses: Software Testing, Quality Assurance & Maintenance, Operation System, Algorithms, Algorithm Design & Analysis, Machine Learning, Conflicts Resolution.",
     ],
   },
 ] as const;
