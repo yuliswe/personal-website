@@ -223,7 +223,7 @@ export class ResumePage extends React.Component<_Props, _State> {
     );
     pdf.html(this.resumeRef.current?.paperRef.current as HTMLElement, {
       callback: (doc) => {
-        doc.save();
+        doc.save((this.getCompanyFromUrl() || "resume") + ".pdf");
       },
       x: 0,
       y: 0,

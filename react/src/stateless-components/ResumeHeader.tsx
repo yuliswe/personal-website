@@ -30,6 +30,7 @@ export class ResumeHeader extends React.Component<_Props> {
             <Typography variant='h6'>Current Address</Typography>
             <Typography>453 Bronco Cres</Typography>
             <Typography>Waterloo, ON, N2K 4L1</Typography>
+            <Typography>Canada</Typography>
           </Grid>
           <Grid item xs={this.smallScreen ? 12 : 3} flexGrow='1'>
             <Box ml={2}>

@@ -117,7 +117,7 @@ export const employment: Employment[] = [
     ],
   },
   {
-    title: "Instructional Support Assistant",
+    title: "Instructional Support",
     company: "University of Waterloo",
     location: "ON",
     date: "Sept/2014 - May/2017",
@@ -128,7 +128,11 @@ export const employment: Employment[] = [
         keywords: ["communication", "teaching"],
       },
       {
-        text: "Led the weekly meetings with Teaching Assistants to discuss the course material and the student's progress. Demonstrated leadership skills in leading the team of Teaching Assistants.",
+        text: "Led the weekly meetings with teaching assistants to assign tasks to individuals and discuss the course material and the student's progress; displayed leadership skills.",
+        keywords: ["leadership", "teamwork", "teaching"],
+      },
+      {
+        text: "Meet with professors daily to design assignments, and discuss difficulties encountered by the students; give suggestions to improve the course material. ",
         keywords: ["leadership", "teamwork", "teaching"],
       },
     ],

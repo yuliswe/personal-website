@@ -108,5 +108,23 @@ export const stories: MyStory[] = [
     and many popular AWS products.
     `,
   },
+  {
+    title: "...Product Management",
+    keywords: ["projectmanagement"],
+    text: `
+    As a technical director at KaleidoDeal, I was responsible for managing the development of our short-video based e-commerce app. 
+    Our team consisted of 5 developers and 1 UI designer. At the beginning of COVID-19, remote work had become an essential part of our work,
+    and everyone was thrown off guard. I had to quickly learn how to manage a remote team and how to communicate with them effectively. Because 
+    when you don't have a physical office, you easily become mentally disconnected from your team. And this goes both ways: engineers 
+    may feel detached from their work too.
+    On the other hand, everyone also enjoyed the freedom of working from home, and it was detrimental that we find a way to stay connected and productive.
+    Our team and I worked out a great method: we had a daily 1-to-1 meeting at 9:30 AM. However, instead of discussing the work we did, 
+    we discussed the work we were going to do for the day. And on Friday, we had a regular stand-up meeting to discuss the work we did for the week.
+    The 1-to-1 meeting was a great way to stay connected with my team, and it helped everyone shift into a proactive mindset instead of a reactive one.
+    It was also important that the employees feel incentivized to complete their work. I listen to my team's concerns and try to address them as much as possible.
+    I understood why each team member was working for the company: some were purely for financial motives, and some were seeking opportunities to learn and grow,
+    and I address them accordingly.
+    `,
+  },
 ];
 export default stories;

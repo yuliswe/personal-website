@@ -20,4 +20,21 @@ export const companyKeywords: {
       "Networking",
     ],
   },
+  dockermanager: {
+    jobTitle: "Manager, Engineer",
+    defaultKeywords: [
+      "fullstack",
+      "leadership",
+      "projectmanagement",
+      "communication",
+      "softwarearchitecture",
+      "systemdesign",
+      "aws",
+      "javascript",
+      "react",
+      "distributedsystems",
+      "c++",
+      "teaching",
+    ],
+  },
 };
