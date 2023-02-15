@@ -22,4 +22,12 @@ export const whyConsiderMe: { [key: string]: WhyConsiderMe } = {
     I understand how customers interact with Docker, and the issues they might encounter. I can help you improve the user experience of your product.
     I have led a team of 5 developers in developing a mobile app for a startup company, and I have a strong sense of responsibility and ownership in helping businesses grow.`,
   },
+  dockerstaffse: {
+    title: "Why Consider Me for Docker",
+    text: `Wouldn't it be great to hire someone who's already an experienced customer of your product? I use Docker, and its toolchains (Docker Desktop, compose, swarm) on a daily basis. 
+    When working on fullstack development, I containerize the server with Docker and deploy it to AWS ECS.
+    I also dockerize the development environment to make it easier for other developers to get started, and to eliminate the "works on my machine" problem. 
+    I understand how customers interact with Docker, and the issues they might encounter. I can help you improve the user experience of your product.
+    I have led a team of 5 developers in developing a mobile app for a startup company, and I have a strong sense of responsibility and ownership in helping businesses grow.`,
+  },
 };

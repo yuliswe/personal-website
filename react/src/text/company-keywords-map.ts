@@ -37,4 +37,22 @@ export const companyKeywords: {
       "teaching",
     ],
   },
+  dockerstaffse: {
+    jobTitle: "Staff Software Engineer (Frontend Platform)",
+    defaultKeywords: [
+      "fullstack",
+      "leadership",
+      "projectmanagement",
+      "testing",
+      "communication",
+      "softwarearchitecture",
+      "systemdesign",
+      "aws",
+      "javascript",
+      "react",
+      "distributedsystems",
+      "c++",
+      "teaching",
+    ],
+  },
 };
