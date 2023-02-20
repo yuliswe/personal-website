@@ -106,7 +106,9 @@ export class ResumeTemplate extends React.PureComponent<_Props> {
                     )}
                     <ResumeSkills key={index} title={item.title}>
                       {item.bulletPoints.map((x, index) => (
-                        <Typography key={index}>{x}</Typography>
+                        <Typography key={index} display='inline'>
+                          {x}
+                        </Typography>
                       ))}
                     </ResumeSkills>
                   </Stack>

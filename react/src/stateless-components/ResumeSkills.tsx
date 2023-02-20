@@ -21,8 +21,13 @@ export class ResumeSkills extends React.PureComponent<_Props> {
         <Grid container>
           {this.props.children.map((child, index) => (
             <Grid item xs={12} sm={6} md={4} key={index}>
-              <Box pl={2}>
-                <Box component='li' pl={1}>
+              <Box pl={2} component='ul' my={0}>
+                <Box
+                  component='li'
+                  pl={1}
+                  sx={{
+                    listStylePosition: "outside",
+                  }}>
                   {child}
                 </Box>
               </Box>
