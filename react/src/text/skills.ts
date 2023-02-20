@@ -18,6 +18,7 @@ export default [
       "HTTP / WebSocket protocols",
       "Microservices / Serverless with AWS Lambda and API Gateway",
       "SQL / NoSQL databases such as MySQL, PostgreSQL, MongoDB, and DynamoDB",
+      "Django / Flask / Express frameworks",
     ],
   },
   {

@@ -13,9 +13,11 @@ import employmentData from "../text/employment";
 import educationData from "../text/education";
 import skillData from "../text/skills";
 import { ResumeSkills } from "./ResumeSkills";
-import { AppContextType, mediaQuery } from "../AppContext";
+import { mediaQuery } from "../AppContext";
 import { Config } from "../config";
-import { intersects, keywordShouldShow } from "../utils";
+import { keywordShouldShow } from "../utils";
+import { projects } from "../text/projects";
+import { ResumeProject } from "./ResumeProject";
 
 type _Props = {
   fixedMargin?: string;
@@ -33,6 +35,12 @@ type _Props = {
  */
 export class ResumeTemplate extends React.PureComponent<_Props> {
   paperRef = React.createRef<HTMLDivElement>();
+
+  showProjectSection() {
+    return projects.some((proj) =>
+      keywordShouldShow(this.props.urlKeywords, proj.keywords)
+    );
+  }
   render() {
     return (
       <Paper id={this.props.id} ref={this.paperRef} sx={{ borderRadius: 0.5 }}>
@@ -125,27 +133,15 @@ export class ResumeTemplate extends React.PureComponent<_Props> {
                 )
             )}
           </ResumeSection>
-          {/* <ResumeSection title='Products'>
-            <ResumeExperience
-              jobTitle='B.Math in Computer Science'
-              company='University of Waterloo'
-              location='Ontario'
-              date='Sept/2013 - Sept/2019'
-              mediaQuery={this.props.mediaQuery}>
-              <Typography>
-                Bachelor of Mathematics, major in Computer Science (CO-OP).
-              </Typography>
-              <Typography>
-                Joint majors in Combinatorics & Optimization and Computational
-                Mathematics.
-              </Typography>
-              <Typography>
-                Undergraduate courses: Software Testing, Quality Assurance &
-                Maintenance, Operation System, Algorithms, Algorithm Design &
-                Analysis, Machine Learning, Conflicts Resolution.
-              </Typography>
-            </ResumeExperience>
-          </ResumeSection> */}
+          {this.showProjectSection() && (
+            <ResumeSection title='Projects'>
+              {projects.map((project) => (
+                <ResumeProject
+                  {...project}
+                  mediaQuery={this.props.mediaQuery}></ResumeProject>
+              ))}
+            </ResumeSection>
+          )}
           {this.props.isPrintedVersion && (
             <Typography variant='caption'>
               This is a highlighted version of a complete resume. Visit

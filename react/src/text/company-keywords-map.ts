@@ -55,4 +55,22 @@ export const companyKeywords: {
       "teaching",
     ],
   },
+  fieldeffect: {
+    jobTitle: "Senior Software Developer",
+    defaultKeywords: [
+      "fullstack",
+      "python",
+      "database",
+      "communication",
+      "projectmanagement",
+      "docker",
+      "datascience",
+      "networking",
+      "distributedsystems",
+      "networking",
+      "aws",
+      "django",
+      "fieldeffect",
+    ],
+  },
 };

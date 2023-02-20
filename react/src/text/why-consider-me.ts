@@ -30,4 +30,10 @@ export const whyConsiderMe: { [key: string]: WhyConsiderMe } = {
     I understand how customers interact with Docker, and the issues they might encounter. I can help you improve the user experience of your product.
     I have led a team of 5 developers in developing a mobile app for a startup company, and I have a strong sense of responsibility and ownership in helping businesses grow.`,
   },
+  fieldeffect: {
+    title: "Why Consider Me for Field Effect",
+    text: `I am a Python expert. Python/Django is my go-to choice for creating backend applications that are scalable and easy to maintain.
+    I use python for data science and machine learning projects with numpy, PyTorch and scikit-learn.
+    I also am an expert with SQL databases such as PostgresQL, NoSQL databases such as DynamoDB, virtualization technologies such as Docker, and cloud computing technologies such as AWS.`,
+  },
 };
