@@ -222,8 +222,14 @@ export class ResumePage extends React.Component<_Props, _State> {
       50
     );
     pdf.html(this.resumeRef.current?.paperRef.current as HTMLElement, {
-      callback: (doc) => {
-        doc.save((this.getCompanyFromUrl() || "resume") + ".pdf");
+      callback: async (doc) => {
+        let filename = (this.getCompanyFromUrl() || "resume") + ".pdf";
+        // doc.output("dataurlnewwindow", {
+        //   filename,
+        // });
+        let output = doc.output("blob");
+        window.open(URL.createObjectURL(output), "_blank");
+        // doc.save(filename);
       },
       x: 0,
       y: 0,
@@ -289,7 +295,7 @@ export class ResumePage extends React.Component<_Props, _State> {
             <Button
               onClick={() => this.downloadPdf()}
               startIcon={<PrintIcon></PrintIcon>}>
-              Download Resume
+              Print Resume
             </Button>
             <ResumeTemplate
               mediaQuery={this._context.mediaQuery}
