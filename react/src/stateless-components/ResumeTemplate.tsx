@@ -25,6 +25,7 @@ type _Props = {
   isPrintedVersion: boolean;
   jobTitle: string;
   websiteUrl: URL;
+  whyConsiderMe: { title: string; text: string } | null;
 };
 
 /**
@@ -41,6 +42,15 @@ export class ResumeTemplate extends React.PureComponent<_Props> {
             websiteUrl={this.props.websiteUrl}
             mediaQuery={this.props.mediaQuery}
           />
+          {this.props.whyConsiderMe && (
+            <ResumeSection
+              title={
+                this.props.whyConsiderMe.title?.toUpperCase() ||
+                "WHY CONSIDER ME"
+              }>
+              <Typography>{this.props.whyConsiderMe.text}</Typography>
+            </ResumeSection>
+          )}
           <ResumeSection title='Employment'>
             {employmentData.map(
               (exp, index) =>

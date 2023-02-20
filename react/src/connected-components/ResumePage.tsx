@@ -234,6 +234,18 @@ export class ResumePage extends React.Component<_Props, _State> {
     });
   }
 
+  getWhyConsiderMe() {
+    let com = this.getCompanyFromUrl();
+    if (com == null) {
+      return null;
+    }
+    let data = whyConsiderMe[com];
+    if (data == null) {
+      return null;
+    }
+    return data;
+  }
+
   renderWhyConsiderMe() {
     let com = this.getCompanyFromUrl();
     if (com == null) {
@@ -282,6 +294,7 @@ export class ResumePage extends React.Component<_Props, _State> {
             <ResumeTemplate
               mediaQuery={this._context.mediaQuery}
               jobTitle={this.getJobTitle()}
+              whyConsiderMe={null}
               websiteUrl={this.getWebsiteUrlForCompany()}
               isPrintedVersion={false}
               urlKeywords={this.state.urlKeywords}></ResumeTemplate>
@@ -299,6 +312,7 @@ export class ResumePage extends React.Component<_Props, _State> {
                 id='force-font-for-pdf'
                 jobTitle={this.getJobTitle()}
                 ref={this.resumeRef}
+                whyConsiderMe={this.getWhyConsiderMe()}
                 websiteUrl={this.getWebsiteUrlForCompany()}
                 isPrintedVersion={true}
                 urlKeywords={this.state.urlKeywords}
