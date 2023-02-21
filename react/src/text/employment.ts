@@ -14,23 +14,23 @@ export const employment: Employment[] = [
     title: "Technical Director",
     company: "KaleidoDeal Inc.",
     location: "Waterloo, ON",
-    date: "June/2021 - July/2022",
+    date: "Sept/2021 - Dec/2022",
     keywords: ["*"],
     bulletPoints: [
       {
-        text: "Excellent leadership and product management skills in applying the Scrum/Agile principles to ensure that the developer team stayed on track for the project timeline; ensured that employees were content with the work environment and culture. ",
+        text: "Excellent leadership and product management skills applying the Scrum/Agile principles.",
         keywords: ["projectmanagement", "leadership"],
       },
       {
-        text: "Well-communicated with stakeholders to decide on the app's requirements; documented the requirements clearly so that the product's requirements were communicated across the team.",
+        text: "Worked with stakeholders to decide the app's requirements and communicated them across the team.",
         keywords: ["communication", "projectmanagement", "leadership"],
       },
       {
-        text: "Designed and implemented the APIs; designed a framework that simplified the client-database communication and improved server-side security.",
+        text: "Led the design and implementation of APIs in Python/Django.",
         keywords: ["systemdesign", "api", "fullstack"],
       },
       {
-        text: "Implemented a mobile app with the UI in Flutter and an API server in Python/Django; Worked with the UI designer to create a beautiful and intuitive user interface.",
+        text: "Led the UX design to create an intuitive mobile app implemented in Flutter.",
         keywords: ["mobile", "ios", "django", "flutter", "fullstack"],
       },
     ],
@@ -39,27 +39,27 @@ export const employment: Employment[] = [
     title: "C++ Database Engineer",
     company: "SAP Canada",
     location: "Waterloo, ON",
-    date: "Sept/2019 - May/2021",
+    date: "Sept/2019 - Sept/2021",
     keywords: ["*"],
     bulletPoints: [
       {
-        text: "Implemented features of client libraries in C++ for the SAP HANA database; ensured the high performance and error resiliency of the client by implementing proprietary networking protocols and fallback algorithms.",
+        text: "Developed high performance and error-resilient client libraries of SAP HANA database in C++.",
         keywords: ["c++", "cpp"],
       },
       {
-        text: "Created unit and integration tests involving complex infrastructures and database operations; demonstrated the ability to write tests that fully cover the code base.",
+        text: "Implemented proprietary TCP protocols in C++.",
+        keywords: ["c++", "cpp", "networking"],
+      },
+      {
+        text: "Unit, end-to-end and continuous integration testing for complex infrastructures and database operations.",
         keywords: ["testing", "fullstack"],
       },
       {
-        text: "Maintained code that was compatible to different versions of the databases and legacy APIs; demonstrated the ability to understand and maintain complex legacy code.",
+        text: "Maintained compatibility for legacy code and various API versions.",
         keywords: ["systemdesign", "api", "fullstack"],
       },
       {
-        text: "Communicated with the team leader and the stakeholders to provide regular progress reports and feedback; ensured the product satisfied the requirements and was delivered on time.",
-        keywords: ["communication", "projectmanagement", "teamwork"],
-      },
-      {
-        text: "Experienced in providing technical support to customers; responsible for reported bugs to the correct person on the team and keeping the customers updated for the progress of resolution.",
+        text: "Provided technical support to customers by phone call and on forums.",
         keywords: [
           "communication",
           "projectmanagement",
@@ -77,11 +77,11 @@ export const employment: Employment[] = [
     keywords: ["assistantship", "research"],
     bulletPoints: [
       {
-        text: "Wrote C++ code that implemented a large integer arithmetic computation algorithm, heavily involved memory manipulation and data structures. Displayed proficiency in C++ and data structure algorithm.",
+        text: "Developed large integer arithmetic computation algorithms in C++ using complex data structures.",
         keywords: ["c++", "cpp", "research"],
       },
       {
-        text: "Documented the code and the algorithm in a report that was reviewed by professors. Demonstrated the ability to write technical reports that are clear and concise.",
+        text: "Wrote technical white paper that was clear and concise.",
         keywords: [
           "documentation",
           "reportwriting",
@@ -90,7 +90,7 @@ export const employment: Employment[] = [
         ],
       },
       {
-        text: "Regularly reported the progress of the project in a supervisor meeting. Presented ideas to audiences in a clear manner.",
+        text: "Presented the progress of the research in regular meetings.",
         keywords: ["communication", "presentation", "leadership", "research"],
       },
     ],
@@ -103,15 +103,15 @@ export const employment: Employment[] = [
     keywords: ["*"],
     bulletPoints: [
       {
-        text: "Implemented a ReactJS web application that allowed students to compile and run their homework C code in the browser. Wrote code in HTML, CSS and JavaScript, with the ReactJS framework.",
+        text: "Developed an online integrated C code development environment in ReactJS.",
         keywords: ["javascript", "reactjs", "fullstack", "web", "*"],
       },
       {
-        text: "Utilized WebSockets to allow the web application to communicate with the server in real-time.",
-        keywords: ["javascript", "reactjs", "fullstack", "web"],
+        text: "Utilized WebSockets to allow the client-server in real-time.",
+        keywords: ["fullstack", "networking"],
       },
       {
-        text: "Implemnted a RESTful API in Common Lisp that allowed the web application to communicate with the server. Demonstrated proficiency in functional programming language.",
+        text: "Implemented APIs in Common Lisp, a functional programming language.",
         keywords: ["lisp", "fullstack", "web", "api", "fpl"],
       },
     ],
@@ -124,15 +124,15 @@ export const employment: Employment[] = [
     keywords: ["assistantship", "teaching"],
     bulletPoints: [
       {
-        text: "Worked with students daily to help them understand the course material and improve their programming skills. Demonstrated the ability to communicate technical concepts to non-technical audiences.",
+        text: "Taught students how to program in C. Demonstrated the ability to communicate technical concepts to non-technical audiences.",
         keywords: ["communication", "teaching"],
       },
       {
-        text: "Led the weekly meetings with teaching assistants to assign tasks to individuals and discuss the course material and the student's progress; displayed leadership skills.",
+        text: "Led a group of teaching assistants to supervise exams and mark assignments.",
         keywords: ["leadership", "teamwork", "teaching"],
       },
       {
-        text: "Meet with professors daily to design assignments, and discuss difficulties encountered by the students; give suggestions to improve the course material. ",
+        text: "Meet with professors daily to design assignments and improve the course content. ",
         keywords: ["leadership", "teamwork", "teaching"],
       },
     ],
@@ -145,19 +145,12 @@ export const employment: Employment[] = [
     keywords: ["*"],
     bulletPoints: [
       {
-        text: "Developed the company's internal platform system for employees to communicate with their supervisors. Wrote code in HTML, CSS and JavaScript, with the AngularJS framework.",
-        keywords: [
-          "javascript",
-          "angularjs",
-          "fullstack",
-          "fullstack",
-          "web",
-          "*",
-        ],
+        text: "Developed an infrastructure platform in AngularJS, HTML and SCSS.",
+        keywords: ["javascript", "angularjs", "fullstack", "web", "*"],
       },
       {
-        text: "Demonstrated teamwork skills in regular reports to the project leader and working with the team of developers to ensure a fast and satisfactory delivery of the software product.",
-        keywords: ["communication"],
+        text: "Implemented REST APIs in PHP Laravel.",
+        keywords: ["fullstack", "backend", "api"],
       },
     ],
   },

@@ -18,7 +18,7 @@ export class ResumeSection extends React.PureComponent<_Props> {
     return (
       <Stack spacing={3} {...this.topAttrs}>
         <Typography
-          className='MuiTypography-h7'
+          className='MuiTypography-h7 follow-next'
           sx={{
             borderBottom: "2px solid black",
             textTransform: "uppercase",

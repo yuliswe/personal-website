@@ -1,7 +1,7 @@
 export default [
   {
     title: "I am an expert in fullstack development with:",
-    keywords: ["fullstack", "web", "javascript"],
+    keywords: ["fullstack", "web", "javascript", "frontend"],
     bulletPoints: [
       "9+ years of experience",
       "JavaScript / TypeScript / NodeJS",
@@ -90,13 +90,7 @@ export default [
   },
   {
     title: "Communication",
-    keywords: [
-      "communication",
-      "teamwork",
-      "leadership",
-      "customersupport",
-      "projectmanagement",
-    ],
+    keywords: ["communication", "teamwork", "leadership", "customersupport"],
     bulletPoints: [
       "Excellent communication skills, both written and verbal in English",
       "Familiarity with remote work environments and working with distributed teams",

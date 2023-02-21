@@ -28,13 +28,25 @@ function splitPages(n: Element, maxHeight: number, vMargin: number) {
   function insertSpace(n: Element, maxHeight: number, vMargin: number) {
     let { top } = n.getBoundingClientRect();
     let goodBottom = top;
+    let followNext: Element | null = null;
     function _insertSpace(n: Element, maxY: number) {
       for (let child of n.children) {
         let { bottom } = child.getBoundingClientRect();
         if (bottom <= maxY) {
-          goodBottom = Math.max(goodBottom, bottom);
+          if (child.classList.contains("follow-next")) {
+            followNext = child;
+          } else {
+            goodBottom = Math.max(goodBottom, bottom);
+            followNext = null;
+          }
         } else {
-          if (
+          if (followNext != null) {
+            let space = document.createElement("div");
+            space.setAttribute("data-page-break", "1");
+            let spaceHeight = maxY - goodBottom + vMargin * 2;
+            space.style.height = `${spaceHeight}px`;
+            n.insertBefore(space, followNext);
+          } else if (
             child.children.length === 0 ||
             child.classList.contains("keep-together")
           ) {
