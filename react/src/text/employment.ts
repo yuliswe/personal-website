@@ -22,12 +22,19 @@ export const employment: Employment[] = [
         keywords: ["projectmanagement", "leadership"],
       },
       {
-        text: "Led the design and implementation of APIs in Python/Django, resulting in a scalable and maintainable backend.",
-        keywords: ["systemdesign", "api", "fullstack"],
+        text: "Led the design and implementation of REST APIs with Python/Django, GraphQL server with JavaScript/NodeJS, resulting in a scalable and maintainable backend.",
+        keywords: ["systemdesign", "api", "fullstack", "python", "javascript"],
       },
       {
-        text: "Led the UX design to create an intuitive mobile app implemented in Flutter.",
-        keywords: ["mobile", "ios", "django", "flutter", "fullstack"],
+        text: "Led the UX design to create an intuitive mobile app implemented in Flutter and ReactJS.",
+        keywords: [
+          "mobile",
+          "ios",
+          "django",
+          "flutter",
+          "fullstack",
+          "javascript",
+        ],
       },
       {
         text: "Collaborated with stakeholders to design the app's requirements, and effectively communicated them to the rest of the team.",
