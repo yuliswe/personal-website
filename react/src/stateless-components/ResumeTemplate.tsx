@@ -144,7 +144,7 @@ export class ResumeTemplate extends React.PureComponent<_Props> {
           )}
           {this.props.isPrintedVersion && (
             <Typography variant='caption'>
-              This is a highlighted version of a complete resume. Visit
+              Visit
               <Link href={this.props.websiteUrl.href} px={0.5}>
                 {this.props.websiteUrl.href}
               </Link>{" "}

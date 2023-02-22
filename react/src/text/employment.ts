@@ -14,7 +14,7 @@ export const employment: Employment[] = [
     title: "Technical Director",
     company: "KaleidoDeal Inc.",
     location: "Waterloo, ON",
-    date: "Sept/2021 - Dec/2022",
+    date: "2022 - 2023",
     keywords: ["*"],
     bulletPoints: [
       {
@@ -22,24 +22,24 @@ export const employment: Employment[] = [
         keywords: ["projectmanagement", "leadership"],
       },
       {
-        text: "Worked with stakeholders to decide the app's requirements and communicated them across the team.",
-        keywords: ["communication", "projectmanagement", "leadership"],
-      },
-      {
-        text: "Led the design and implementation of APIs in Python/Django.",
+        text: "Led the design and implementation of APIs in Python/Django, resulting in a scalable and maintainable backend.",
         keywords: ["systemdesign", "api", "fullstack"],
       },
       {
         text: "Led the UX design to create an intuitive mobile app implemented in Flutter.",
         keywords: ["mobile", "ios", "django", "flutter", "fullstack"],
       },
+      {
+        text: "Collaborated with stakeholders to design the app's requirements, and effectively communicated them to the rest of the team.",
+        keywords: ["communication", "projectmanagement", "leadership"],
+      },
     ],
   },
   {
-    title: "C++ Database Engineer",
+    title: "Database Engineer",
     company: "SAP Canada",
     location: "Waterloo, ON",
-    date: "Sept/2019 - Sept/2021",
+    date: "2019 - 2021",
     keywords: ["*"],
     bulletPoints: [
       {
@@ -51,15 +51,15 @@ export const employment: Employment[] = [
         keywords: ["c++", "cpp", "networking"],
       },
       {
+        text: "Maintained C++ client library code for compatibility across different versions of APIs.",
+        keywords: ["systemdesign", "api", "fullstack"],
+      },
+      {
         text: "Unit, end-to-end and continuous integration testing for complex infrastructures and database operations.",
         keywords: ["testing", "fullstack"],
       },
       {
-        text: "Maintained compatibility for legacy code and various API versions.",
-        keywords: ["systemdesign", "api", "fullstack"],
-      },
-      {
-        text: "Provided technical support to customers by phone call and on forums.",
+        text: "Provided technical support to customers by phone call and on forums, resolving their issues.",
         keywords: [
           "communication",
           "projectmanagement",
@@ -73,7 +73,7 @@ export const employment: Employment[] = [
     title: "C++ Research Assistant",
     company: "University of Waterloo",
     location: "ON",
-    date: "Sept/2015 - May/2018",
+    date: "2017 - 2018",
     keywords: ["assistantship", "research"],
     bulletPoints: [
       {
@@ -99,19 +99,19 @@ export const employment: Employment[] = [
     title: "Fullstack Engineer",
     company: "University of Waterloo",
     location: "ON",
-    date: "Jan/2015 - May/2017",
+    date: "2015 - 2017",
     keywords: ["*"],
     bulletPoints: [
       {
-        text: "Developed an online integrated C code development environment in ReactJS.",
+        text: "Developed a fully functional web-based C code integrated development environment using ReactJS, HTML, CSS, and JavaScript.",
         keywords: ["javascript", "reactjs", "fullstack", "web", "*"],
       },
       {
-        text: "Utilized WebSockets to allow the client-server in real-time.",
+        text: "Implemented real-time client-server communication using WebSockets, enhancing user experience and efficiency.",
         keywords: ["fullstack", "networking"],
       },
       {
-        text: "Implemented APIs in Common Lisp, a functional programming language.",
+        text: "Built APIs using Common Lisp, a functional programming language, to facilitate seamless data transfer and support system scalability.",
         keywords: ["lisp", "fullstack", "web", "api", "fpl"],
       },
     ],
@@ -120,7 +120,7 @@ export const employment: Employment[] = [
     title: "Instructional Support",
     company: "University of Waterloo",
     location: "ON",
-    date: "Sept/2014 - May/2017",
+    date: "2014 - 2017",
     keywords: ["assistantship", "teaching"],
     bulletPoints: [
       {
@@ -141,16 +141,20 @@ export const employment: Employment[] = [
     title: "AngularJS Developer",
     company: "Everz Microsystem",
     location: "Burlington, ON",
-    date: "Jan/2014 - May/2014",
+    date: "2014 - 2015",
     keywords: ["*"],
     bulletPoints: [
       {
-        text: "Developed an infrastructure platform in AngularJS, HTML and SCSS.",
+        text: "Designed and developed a web-based infrastructure platform using AngularJS, HTML, and CSS.",
         keywords: ["javascript", "angularjs", "fullstack", "web", "*"],
       },
       {
-        text: "Implemented REST APIs in PHP Laravel.",
+        text: "Implemented RESTful APIs using PHP Laravel framework for efficient data communication.",
         keywords: ["fullstack", "backend", "api"],
+      },
+      {
+        text: "Contributed to the testing and debugging process to ensure high-quality code delivery.",
+        keywords: ["testing"],
       },
     ],
   },

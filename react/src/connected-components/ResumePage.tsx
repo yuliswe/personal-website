@@ -23,7 +23,11 @@ type _State = {
   myStories: MyStory[];
 };
 
-function splitPages(n: Element, maxHeight: number, vMargin: number) {
+function splitPages(
+  n: Element,
+  maxHeight: number = 1056,
+  vMargin: number = 40
+) {
   n.querySelectorAll("[data-page-break]").forEach((x) => x.remove());
   function insertSpace(n: Element, maxHeight: number, vMargin: number) {
     let { top } = n.getBoundingClientRect();
@@ -205,7 +209,7 @@ export class ResumePage extends React.Component<_Props, _State> {
     snapshot?: any
   ): void {
     if (this.resumeRef.current && this.resumeRef.current.paperRef.current) {
-      splitPages(this.resumeRef.current.paperRef.current, 1056, 50);
+      splitPages(this.resumeRef.current.paperRef.current);
     }
   }
 
@@ -228,11 +232,7 @@ export class ResumePage extends React.Component<_Props, _State> {
       compress: true,
     });
     pdf.setFont("Helvetica");
-    splitPages(
-      this.resumeRef.current!.paperRef!.current as HTMLElement,
-      1056,
-      50
-    );
+    splitPages(this.resumeRef.current!.paperRef!.current as HTMLElement);
     pdf.html(this.resumeRef.current?.paperRef.current as HTMLElement, {
       callback: async (doc) => {
         let filename = (this.getCompanyFromUrl() || "resume") + ".pdf";

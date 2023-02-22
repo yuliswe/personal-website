@@ -78,4 +78,14 @@ export const companyKeywords: {
       "cloud",
     ],
   },
+  slackfrontend: {
+    jobTitle: "Senior Software Engineer - Frontend",
+    defaultKeywords: [
+      "fullstack",
+      "javascript",
+      "websocket",
+      "mobileapp",
+      "communication",
+    ],
+  },
 };

@@ -3,8 +3,8 @@ export default [
     title: "I am an expert in fullstack development with:",
     keywords: ["fullstack", "web", "javascript", "frontend"],
     bulletPoints: [
-      "9+ years of experience",
       "JavaScript / TypeScript / NodeJS",
+      "HTML / CSS",
       "ReactJS / VueJS frameworks",
       "NPM / Webpack / Babel / ESLint configurations",
       "Responsive and mobile-first design",
@@ -42,10 +42,10 @@ export default [
     keywords: ["fullstack", "programminglanguages"],
     bulletPoints: [
       "Expertise in JavaScript",
-      "5+ years of experience with C++",
-      "Experienced with Swift, Kotlin, and Dart",
       "Expertise in Python",
       "Proficiency in Go",
+      "5+ years of experience with C++",
+      "Experienced with Swift, Kotlin, and Dart",
       "Experienced with Object-Oriented Programming patterns and principles",
       "Proficiency with functional programming languages such as Lisp and Haskell",
     ],

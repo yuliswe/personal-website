@@ -36,4 +36,9 @@ export const whyConsiderMe: { [key: string]: WhyConsiderMe } = {
     I use python for data science and machine learning projects with numpy, PyTorch and scikit-learn.
     I also am an expert with SQL databases such as PostgresQL, NoSQL databases such as DynamoDB, virtualization technologies such as Docker, and cloud computing technologies such as AWS.`,
   },
+  slackfrontend: {
+    title: "Why Hire Me for Slack",
+    text: `With over 8 years of experience working on web applications, I have contributed to more than 10 successful projects using a range of web technologies, including JavaScript/Typescript (ES6), HTML, (S)CSS, WebSockets, WebRTC, and Local Storage. 
+    With strong UX and design sensibilities, I have worked at small startups where I led the development of both frontend apps, creating beautiful and intuitive UI. I have a particular affinity for Slack as a communication tool and have leveraged its capabilities to enhance team communication at my previous startup.`,
+  },
 };
