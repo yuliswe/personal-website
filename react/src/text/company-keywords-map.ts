@@ -127,4 +127,23 @@ export const companyKeywords: {
       "programminglanguages",
     ],
   },
+  uber: {
+    jobTitle: "Software Engineer",
+    defaultKeywords: [
+      "backend",
+      "python",
+      "api",
+      "graphql",
+      "programminglanguages",
+      "aws",
+      "distributedsystems",
+      "cloudcomputing",
+      "networking",
+      "softwarearchitecture",
+      "testing",
+      "systemdesign",
+      "c++",
+      "communication",
+    ],
+  },
 };

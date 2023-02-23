@@ -54,4 +54,9 @@ export const whyConsiderMe: { [key: string]: WhyConsiderMe } = {
     I have a solid understanding of the fundamentals of computer science, including data structures, algorithms, and design patterns.
     Furthermore, as a passionate Twitch user, I enjoy watching streams before going to sleep. I am confident that I would be an excellent addition to your team, and I look forward to contributing my skills and knowledge to your company's success.`,
   },
+  uber: {
+    title: "Why Hire Me for Uber",
+    text: `With a strong background in fullstack engineering, I build scalable backend applications with a wide range of
+    microservices technologies such as AWS Lambda, SQS, Docker and Kubernetes. I possess the academic background and technical expertise necessary to excel in the role of Sr. Software Engineer at Uber, as well as the passion for collaborating with diverse teams to tackle complex challenges aligns with Uber's mission to ignite opportunity by setting the world in motion. `,
+  },
 };

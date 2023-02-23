@@ -37,6 +37,10 @@ export const employment: Employment[] = [
         ],
       },
       {
+        text: "Deployed scaleable backend systems of microservices architecture with AWS Lambda, SQS, and Kubernetes.",
+        keywords: ["distributedsystems", "aws"],
+      },
+      {
         text: "Collaborated with stakeholders to design the app's requirements, and effectively communicated them to the rest of the team.",
         keywords: ["communication", "projectmanagement", "leadership"],
       },
@@ -50,7 +54,7 @@ export const employment: Employment[] = [
     keywords: ["*"],
     bulletPoints: [
       {
-        text: "Developed high performance and error-resilient client libraries of SAP HANA database in C++.",
+        text: "Developed high-performance and error-resilient client libraries of SAP HANA database in C++.",
         keywords: ["c++", "cpp"],
       },
       {
@@ -66,7 +70,7 @@ export const employment: Employment[] = [
         keywords: ["testing", "fullstack"],
       },
       {
-        text: "Provided technical support to customers by phone call and on forums, resolving their issues.",
+        text: "Provided technical support to customers by phone call and on forums, resulting in customer satisfaction.",
         keywords: [
           "communication",
           "projectmanagement",
