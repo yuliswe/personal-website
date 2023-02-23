@@ -88,4 +88,23 @@ export const companyKeywords: {
       "communication",
     ],
   },
+  slackbackend: {
+    jobTitle: "Senior Software Engineer - Backend",
+    defaultKeywords: [
+      "systemdesign",
+      "distributedsystems",
+      "communication",
+      "testing",
+      "softwarearchitecture",
+      "python",
+      "research",
+      "leadership",
+      "backend",
+      "networking",
+      "api",
+      "graphql",
+      "projectmanagement",
+      "cloudcomputing",
+    ],
+  },
 };

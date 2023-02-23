@@ -88,7 +88,7 @@ export const employment: Employment[] = [
         keywords: ["c++", "cpp", "research"],
       },
       {
-        text: "Wrote technical white paper that was clear and concise.",
+        text: "Wrote a clear and concise technical white paper that explained complex mathematical concepts in an accessible way.",
         keywords: [
           "documentation",
           "reportwriting",
@@ -97,7 +97,7 @@ export const employment: Employment[] = [
         ],
       },
       {
-        text: "Presented the progress of the research in regular meetings.",
+        text: "Presented research progress updates at regular meetings, facilitating productive discussions with team members and leadership and enabling the project to stay on track to meet important deadlines.",
         keywords: ["communication", "presentation", "leadership", "research"],
       },
     ],
@@ -111,7 +111,7 @@ export const employment: Employment[] = [
     bulletPoints: [
       {
         text: "Developed a fully functional web-based C code integrated development environment using ReactJS, HTML, CSS, and JavaScript.",
-        keywords: ["javascript", "reactjs", "fullstack", "web", "*"],
+        keywords: ["javascript", "reactjs", "fullstack", "web"],
       },
       {
         text: "Implemented real-time client-server communication using WebSockets, enhancing user experience and efficiency.",
@@ -145,7 +145,7 @@ export const employment: Employment[] = [
     ],
   },
   {
-    title: "AngularJS Developer",
+    title: "Web Developer",
     company: "Everz Microsystem",
     location: "Burlington, ON",
     date: "2014 - 2015",

@@ -15,10 +15,12 @@ export default [
     keywords: ["backend", "api", "fullstack"],
     bulletPoints: [
       "REST / GraphQL API design and development",
-      "HTTP / WebSocket protocols",
       "Microservices / Serverless with AWS Lambda and API Gateway",
-      "SQL / NoSQL databases such as MySQL, PostgreSQL, MongoDB, and DynamoDB",
+      "SQL databases such as MySQL, PostgreSQL",
+      "NoSQL databases such as MongoDB, and DynamoDB",
+      "HTTP / WebSocket protocols",
       "Django / Flask / Express frameworks",
+      "PHP / Laravel / Hack frameworks",
     ],
   },
   {
@@ -43,7 +45,7 @@ export default [
     bulletPoints: [
       "Expertise in JavaScript",
       "Expertise in Python",
-      "Proficiency in Go",
+      "Proficiency in Go, PHP, Java",
       "5+ years of experience with C++",
       "Experienced with Swift, Kotlin, and Dart",
       "Experienced with Object-Oriented Programming patterns and principles",

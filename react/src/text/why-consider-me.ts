@@ -41,4 +41,10 @@ export const whyConsiderMe: { [key: string]: WhyConsiderMe } = {
     text: `With over 8 years of experience working on web applications, I have contributed to more than 10 successful projects using a range of web technologies, including JavaScript/Typescript (ES6), HTML, (S)CSS, WebSockets, WebRTC, and Local Storage. 
     With strong UX and design sensibilities, I have worked at small startups where I led the development of both frontend apps, creating beautiful and intuitive UI. I have a particular affinity for Slack as a communication tool and have leveraged its capabilities to enhance team communication at my previous startup.`,
   },
+  slackbackend: {
+    title: "Why Hire Me for Slack",
+    text: `With over 8 years of experience working on web applications, I have contributed to more than 10 successful projects using a range of API technologies, including Python/Django, REST/GraphQL API servers, PHP/Hack, and Go. 
+    I have a solid understanding of the fundamentals of computer science, including data structures, algorithms, and design patterns.
+    I have a particular affinity for Slack as a communication tool and have leveraged its capabilities to enhance team communication at my previous startup.`,
+  },
 };
