@@ -66,7 +66,7 @@ export default [
     title: "Cloud Computing",
     keywords: ["cloud", "cloudcomputing"],
     bulletPoints: [
-      "Experienced with AWS EC2, S3, and Lambda in production environment",
+      "Experienced with AWS technologies such as EC2, S3, SQS, SNS, and Lambda in production environments",
       "Familiarity containerization with Docker and Kubernetes",
       "Experienced with data analysis and visualization",
     ],
@@ -96,7 +96,7 @@ export default [
     bulletPoints: [
       "Excellent communication skills, both written and verbal in English",
       "Familiarity with remote work environments and working with distributed teams",
-      "Language: English, Mandarin (native)",
+      "Language: English, Mandarin",
     ],
   },
 ] as const;

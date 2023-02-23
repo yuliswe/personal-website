@@ -47,4 +47,11 @@ export const whyConsiderMe: { [key: string]: WhyConsiderMe } = {
     I have a solid understanding of the fundamentals of computer science, including data structures, algorithms, and design patterns.
     I have a particular affinity for Slack as a communication tool and have leveraged its capabilities to enhance team communication at my previous startup.`,
   },
+  twitch: {
+    title: "Why Hire Me for Twitch",
+    text: `As an experienced full-stack developer with over 8 years in the field, I have successfully contributed to 10+ projects utilizing various AWS technologies, such as Lambda, SQS, CloudFormation, and SNS for email and mobile push notifications. 
+    My expertise extends to Go, which I favor for its excellent performance and concurrency support, especially when developing microservices on AWS Lambda.
+    I have a solid understanding of the fundamentals of computer science, including data structures, algorithms, and design patterns.
+    Furthermore, as a passionate Twitch user, I enjoy watching streams before going to sleep. I am confident that I would be an excellent addition to your team, and I look forward to contributing my skills and knowledge to your company's success.`,
+  },
 };
