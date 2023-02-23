@@ -134,7 +134,7 @@ export class ResumeTemplate extends React.PureComponent<_Props> {
             )}
           </ResumeSection>
           {this.showProjectSection() && (
-            <ResumeSection title='Projects'>
+            <ResumeSection title='Portfolio'>
               {projects.map((project) => (
                 <ResumeProject
                   {...project}

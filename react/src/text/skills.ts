@@ -41,7 +41,7 @@ export default [
   // },
   {
     title: "Programming Languages",
-    keywords: ["fullstack", "programminglanguages"],
+    keywords: ["programminglanguages"],
     bulletPoints: [
       "Expertise in JavaScript",
       "Expertise in Python",

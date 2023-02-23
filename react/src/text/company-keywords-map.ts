@@ -18,6 +18,7 @@ export const companyKeywords: {
       "communication",
       "distributedsystems",
       "Networking",
+      "programminglanguages",
     ],
   },
   dockermanager: {
@@ -35,6 +36,7 @@ export const companyKeywords: {
       "distributedsystems",
       "c++",
       "teaching",
+      "programminglanguages",
     ],
   },
   dockerstaffse: {
@@ -53,6 +55,7 @@ export const companyKeywords: {
       "distributedsystems",
       "c++",
       "teaching",
+      "programminglanguages",
     ],
   },
   fieldeffect: {
@@ -86,6 +89,7 @@ export const companyKeywords: {
       "websocket",
       "mobileapp",
       "communication",
+      "programminglanguages",
     ],
   },
   slackbackend: {
@@ -144,6 +148,25 @@ export const companyKeywords: {
       "systemdesign",
       "c++",
       "communication",
+    ],
+  },
+  wealthsimple: {
+    jobTitle: "Senior Fullstack Software Engineer - Wealthsimple Tax",
+    defaultKeywords: [
+      "fullstack",
+      "backend",
+      "python",
+      "javascript",
+      "react",
+      "redux",
+      "django",
+      "python",
+      "django",
+      "api",
+      "graphql",
+      "aws",
+      "distributedsystems",
+      "miroservices",
     ],
   },
 };

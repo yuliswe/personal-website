@@ -59,4 +59,10 @@ export const whyConsiderMe: { [key: string]: WhyConsiderMe } = {
     text: `With a strong background in fullstack engineering, I build scalable backend applications with a wide range of
     microservices technologies such as AWS Lambda, SQS, Docker and Kubernetes. I possess the academic background and technical expertise necessary to excel in the role of Sr. Software Engineer at Uber, as well as the passion for collaborating with diverse teams to tackle complex challenges aligns with Uber's mission to ignite opportunity by setting the world in motion. `,
   },
+  wealthsimple: {
+    title: "Why Hire Me for WealthSimple",
+    text: `With over 8 years of experience as a fullstack engineer, I have contributed to more than 10 successful projects using a range of API technologies, including Python/Django, REST/GraphQL API servers.
+    I also am an expert with SQL databases such as PostgresQL, and microservices technologies such as AWS Lambda, SQS, and SNS. Moreover, I'm a Wealthsimple investor myself. 
+    As a user, I am inspired by Wealthsimple and truly believe in its mission. I am confident that I would be an excellent contributor to your team.`,
+  },
 };
