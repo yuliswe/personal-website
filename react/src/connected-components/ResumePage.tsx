@@ -16,10 +16,11 @@ import { WhyConsiderMe } from "../stateless-components/WhyConsiderMe";
 import { whyConsiderMe } from "../text/why-consider-me";
 import { companyKeywords } from "../text/company-keywords-map";
 import { Helmet } from "react-helmet-async";
+import { SiteLayout } from "../stateless-components/SiteLayout";
+import { AppBar } from "../stateless-components/AppBar";
 type _Props = {};
 
 type _State = {
-  urlKeywords: string[];
   myStories: MyStory[];
 };
 
@@ -87,7 +88,10 @@ export class ResumePage extends React.Component<_Props, _State> {
   getKeywordsFromUrl(): string[] {
     let {
       query: { keywords },
-    } = queryString.parseUrl(document.location.href, this.urlParseOptions);
+    } = queryString.parseUrl(
+      this._context.routes?.location.search || "?",
+      this.urlParseOptions
+    );
     if (keywords == null) {
       return [];
     }
@@ -103,7 +107,10 @@ export class ResumePage extends React.Component<_Props, _State> {
     }
     let {
       query: { company },
-    } = queryString.parseUrl(document.location.href, this.urlParseOptions);
+    } = queryString.parseUrl(
+      this._context.routes?.location.search || "?",
+      this.urlParseOptions
+    );
     if (company == null) {
       return null;
     }
@@ -115,17 +122,17 @@ export class ResumePage extends React.Component<_Props, _State> {
 
   getKeywordsFromUrlCompany(): string[] {
     let com = this.getCompanyFromUrl();
-    if (com != null) {
-      let data = companyKeywords[com];
-      if (data != null) {
-        return data.defaultKeywords;
-      }
+    if (com == null) {
+      return [];
     }
-    return ["*"];
+    let data = companyKeywords[com];
+    if (data == null) {
+      return [];
+    }
+    return data.defaultKeywords;
   }
 
   getJobTitle(): string {
-    let keywords = this.getKeywordsFromUrl();
     let com = this.getCompanyFromUrl();
     if (com != null) {
       let data = companyKeywords[com];
@@ -142,35 +149,58 @@ export class ResumePage extends React.Component<_Props, _State> {
     return Array.from(new Set(keywords));
   }
 
+  getEnabledKeywords(): string[] {
+    let keywords = this.getKeywordsFromUrl();
+    keywords.push(...this.getKeywordsFromUrlCompany());
+    if (keywords.includes("*")) {
+      return Array.from(allKeywords);
+    }
+    if (keywords.length === 0) {
+      return Array.from(allKeywords);
+    }
+    return Array.from(new Set(keywords));
+  }
+
   setHighlightKeywords(keywords: string[]): void {
+    //console.log("Set keywords: ", keywords);
     if (keywords.includes("*")) {
       keywords = Array.from(allKeywords);
     }
     keywords.push(...this.getKeywordsFromUrlCompany());
     keywords = Array.from(new Set(keywords));
-    let location = queryString.stringifyUrl(
-      {
-        url: document.location.href,
-        query: { keywords },
-      },
-      this.urlParseOptions
-    );
-    window.history.replaceState({}, "", location);
-    this.setState({
-      urlKeywords: keywords,
+    this._context.routes?.navigate({
+      pathname: this._context.routes?.location.pathname,
+      search: queryString.stringifyUrl(
+        {
+          url: "",
+          query: { keywords },
+        },
+        this.urlParseOptions
+      ),
     });
   }
 
   removeUrlKeywords(keywords: string[]): void {
+    //console.log("Remove keywords: ", keywords);
     let oldKeywords = this.getHighlightKeywords();
     if (keywords.includes("*")) {
+      // eg, click on Select All to deselect all
       this.setHighlightKeywords([]);
-    } else {
-      let newKeywords = oldKeywords.filter(
-        (x) => !keywords.includes(x) && x !== "*"
-      );
-      this.setHighlightKeywords(newKeywords);
+      return;
     }
+    if (oldKeywords.includes("*")) {
+      // eg, click on a non * keyword to, cancel select all, and deselect that keyword
+      this.setHighlightKeywords(
+        Array.from(allKeywords).filter(
+          (x) => !keywords.includes(x) && x !== "*"
+        )
+      );
+      return;
+    }
+    let newKeywords = oldKeywords.filter(
+      (x) => !keywords.includes(x) && x !== "*"
+    );
+    this.setHighlightKeywords(newKeywords);
   }
 
   getWebsiteUrlForCompany(): URL {
@@ -198,9 +228,18 @@ export class ResumePage extends React.Component<_Props, _State> {
   }
 
   componentDidMount(): void {
-    this.setState({
-      urlKeywords: this.getHighlightKeywords(),
-    });
+    // if (
+    //   this._context.routes?.params?.["company"] == undefined &&
+    //   this._context.routes?.search?.get("keywords") == null
+    // ) {
+    //   //console.log("navigate");
+    //   // document.location.search = new URLSearchParams("keywords=*").toString();
+    //   // redirect(this._context.routes?.location.pathname + "?keywords=*");
+    //   this._context.routes?.navigate({
+    //     pathname: this._context.routes?.location.pathname,
+    //     search: "?keywords=*",
+    //   });
+    // }
   }
 
   componentDidUpdate(
@@ -218,7 +257,6 @@ export class ResumePage extends React.Component<_Props, _State> {
   constructor(props: _Props) {
     super(props);
     this.state = {
-      urlKeywords: [],
       myStories: myStoriesData,
     };
   }
@@ -278,7 +316,7 @@ export class ResumePage extends React.Component<_Props, _State> {
 
   render() {
     return (
-      <React.Fragment>
+      <SiteLayout appBar={<AppBar />}>
         <Helmet>
           <title>Yu | {this.getJobTitle()}</title>
         </Helmet>
@@ -293,7 +331,7 @@ export class ResumePage extends React.Component<_Props, _State> {
               </Grid>
               <Grid item md={6}>
                 <ImAlsoA
-                  highlightKeywords={this.state.urlKeywords}
+                  highlightKeywords={this.getHighlightKeywords()}
                   onClick={(e, keywords, highlighted) =>
                     highlighted
                       ? this.removeUrlKeywords(keywords)
@@ -315,7 +353,7 @@ export class ResumePage extends React.Component<_Props, _State> {
               whyConsiderMe={null}
               websiteUrl={this.getWebsiteUrlForCompany()}
               isPrintedVersion={false}
-              urlKeywords={this.state.urlKeywords}></ResumeTemplate>
+              urlKeywords={this.getEnabledKeywords()}></ResumeTemplate>
           </Stack>
           <Box
             width='8.5in'
@@ -333,17 +371,17 @@ export class ResumePage extends React.Component<_Props, _State> {
                 whyConsiderMe={this.getWhyConsiderMe()}
                 websiteUrl={this.getWebsiteUrlForCompany()}
                 isPrintedVersion={true}
-                urlKeywords={this.state.urlKeywords}
+                urlKeywords={this.getEnabledKeywords()}
                 fixedMargin='50pt'></ResumeTemplate>
             </ThemeProvider>
           </Box>
           <Stack my={10} spacing={2}>
             <MyStories
               stories={this.state.myStories}
-              urlKeywords={this.state.urlKeywords}></MyStories>
+              urlKeywords={this.getEnabledKeywords()}></MyStories>
           </Stack>
         </Stack>
-      </React.Fragment>
+      </SiteLayout>
     );
   }
 }

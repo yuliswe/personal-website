@@ -1,6 +1,6 @@
 import { Theme } from "@mui/material";
 import React from "react";
-import { Params } from "react-router-dom";
+import { Location, NavigateFunction, Params } from "react-router-dom";
 
 export const mediaQuery = {
   sm: false,
@@ -12,9 +12,11 @@ export const defaultAppContext = {
   mediaQuery: mediaQuery,
   specialThemeWithConstantSpacing: null as Theme | null,
   routes: null as {
-    location: any;
-    navigate: any;
+    location: Location;
+    navigate: NavigateFunction;
     params: Params<string>;
+    search: URLSearchParams;
+    updateSearch: (search: URLSearchParams) => void;
   } | null,
 };
 

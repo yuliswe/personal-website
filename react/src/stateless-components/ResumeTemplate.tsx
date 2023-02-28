@@ -137,6 +137,7 @@ export class ResumeTemplate extends React.PureComponent<_Props> {
             <ResumeSection title='Portfolio'>
               {projects.map((project) => (
                 <ResumeProject
+                  key={project.title}
                   {...project}
                   mediaQuery={this.props.mediaQuery}></ResumeProject>
               ))}

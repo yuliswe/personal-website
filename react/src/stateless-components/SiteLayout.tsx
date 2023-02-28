@@ -4,7 +4,7 @@ import { AppContext, AppContextType } from "../AppContext";
 
 type _Props = {
   appBar: React.ReactNode;
-  body: React.ReactNode;
+  children: React.ReactNode;
 };
 
 export class SiteLayout extends React.PureComponent<_Props> {
@@ -27,7 +27,7 @@ export class SiteLayout extends React.PureComponent<_Props> {
               my={this._context.mediaQuery.xs ? 0 : 10}
               mx={this._context.mediaQuery.xs ? 10 : 20}
               pb={10}>
-              {this.props.body}
+              {this.props.children}
             </Box>
           </Paper>
         </Container>

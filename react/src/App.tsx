@@ -15,18 +15,20 @@ import {
   useLocation,
   useNavigate,
   useParams,
+  useSearchParams,
 } from "react-router-dom";
 import React from "react";
-import { Helmet, HelmetProvider } from "react-helmet-async";
+import { HelmetProvider } from "react-helmet-async";
+import { ResumePage } from "./connected-components/ResumePage";
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <WithContext children={<HomePage />} />,
+    element: <WithContext children={<ResumePage />} />,
   },
   {
     path: "/:company",
-    element: <WithContext children={<HomePage />} />,
+    element: <WithContext children={<ResumePage />} />,
   },
 ]);
 
@@ -67,6 +69,7 @@ function WithContext(props: React.PropsWithChildren) {
   const location = useLocation();
   const navigate = useNavigate();
   const params = useParams();
+  const [search, updateSearch] = useSearchParams();
   return (
     <HelmetProvider>
       <AppContextType.Provider
@@ -80,6 +83,8 @@ function WithContext(props: React.PropsWithChildren) {
             location,
             navigate,
             params,
+            search,
+            updateSearch,
           },
           specialThemeWithConstantSpacing,
         }}>

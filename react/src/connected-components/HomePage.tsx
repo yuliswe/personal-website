@@ -19,7 +19,9 @@ class _Home extends React.Component<_Props, _State> {
   }
 
   render() {
-    return <SiteLayout appBar={<AppBar />} body={<ResumePage></ResumePage>} />;
+    return (
+      <SiteLayout appBar={<AppBar />} children={<ResumePage></ResumePage>} />
+    );
   }
 }
 
