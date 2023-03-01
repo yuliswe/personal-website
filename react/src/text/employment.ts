@@ -70,7 +70,7 @@ export const employment: Employment[] = [
         keywords: ["testing", "fullstack"],
       },
       {
-        text: "Provided technical support to customers by phone call and on forums, resulting in customer satisfaction.",
+        text: "Provided technical support to customers by phone calls and on forums, resulting in customer satisfaction.",
         keywords: [
           "communication",
           "projectmanagement",

@@ -13,7 +13,9 @@ export class ResumeHeader extends React.Component<_Props> {
   }
 
   get companyUrlBare(): string {
-    return this.props.websiteUrl.host + this.props.websiteUrl.pathname;
+    return (
+      "https://" + this.props.websiteUrl.host + this.props.websiteUrl.pathname
+    );
   }
 
   render() {

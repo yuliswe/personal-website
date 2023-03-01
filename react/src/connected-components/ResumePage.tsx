@@ -27,7 +27,7 @@ type _State = {
 function splitPages(
   n: Element,
   maxHeight: number = 1056,
-  vMargin: number = 40
+  vMargin: number = 50
 ) {
   n.querySelectorAll("[data-page-break]").forEach((x) => x.remove());
   function insertSpace(n: Element, maxHeight: number, vMargin: number) {
