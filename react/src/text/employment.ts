@@ -11,7 +11,7 @@ type Employment = {
 };
 export const employment: Employment[] = [
   {
-    title: "Technical Director",
+    title: "Software Engineer",
     company: "KaleidoDeal Inc.",
     location: "Waterloo, ON",
     date: "2022 - 2023",
