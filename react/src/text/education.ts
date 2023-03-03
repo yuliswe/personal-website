@@ -3,7 +3,7 @@ export default [
     title: "B.Math, Computer Science",
     company: "University of Waterloo",
     location: "Ontario",
-    date: "2019",
+    date: "",
     alwayShow: true,
     keywords: [],
     bulletPoints: [
