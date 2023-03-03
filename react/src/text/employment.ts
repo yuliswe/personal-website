@@ -150,7 +150,7 @@ export const employment: Employment[] = [
   },
   {
     title: "Web Developer",
-    company: "Everz Microsystem",
+    company: "Evertz Microsystem",
     location: "Burlington, ON",
     date: "2014 - 2015",
     keywords: ["*"],
