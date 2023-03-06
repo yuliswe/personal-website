@@ -31,6 +31,15 @@ export default [
       "Swift / Flutter / React Native apps",
     ],
   },
+  {
+    title: "System Design",
+    keywords: ["systemdesign", "systemdesigns"],
+    bulletPoints: [
+      "Experienced with design of large scale distributed systems, such as streaming services and social media platforms",
+      "Design of aynchronous and concurrent systems such as payment processing services and chat services",
+      "Experienced with performance tuning and optimization",
+    ],
+  },
   // {
   //   title: "Data Science and Quantitative Research",
   //   bulletPoints: [

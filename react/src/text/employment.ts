@@ -41,6 +41,10 @@ export const employment: Employment[] = [
         keywords: ["distributedsystems", "aws"],
       },
       {
+        text: "Designed and implemented distributed payment and streaming systems.",
+        keywords: ["systemdesign", "systemdesigns"],
+      },
+      {
         text: "Collaborated with stakeholders to design the app's requirements, and effectively communicated them to the rest of the team.",
         keywords: ["communication", "projectmanagement", "leadership"],
       },
