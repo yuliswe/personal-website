@@ -5,7 +5,7 @@ export default [
     bulletPoints: [
       "JavaScript / TypeScript / NodeJS",
       "HTML / CSS",
-      "ReactJS / VueJS frameworks",
+      "ReactJS / VueJS / AngularJS frameworks",
       "NPM / Webpack / Babel / ESLint configurations",
       "Responsive and mobile-first design",
     ],
