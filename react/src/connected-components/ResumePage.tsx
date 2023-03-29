@@ -24,11 +24,7 @@ type _State = {
   myStories: MyStory[];
 };
 
-function splitPages(
-  n: Element,
-  maxHeight: number = 1056,
-  vMargin: number = 50
-) {
+function splitPages(n: Element, maxHeight: number = 1056, vMargin: number = 0) {
   n.querySelectorAll("[data-page-break]").forEach((x) => x.remove());
   function insertSpace(n: Element, maxHeight: number, vMargin: number) {
     let { top } = n.getBoundingClientRect();
