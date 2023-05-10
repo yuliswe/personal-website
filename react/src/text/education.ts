@@ -1,6 +1,6 @@
 export default [
   {
-    title: "B.Math, Computer Science",
+    title: "Bachelor of Mathematics",
     company: "University of Waterloo",
     location: "Ontario",
     date: "",
@@ -8,12 +8,12 @@ export default [
     keywords: [],
     bulletPoints: [
       {
-        text: "Bachelor of Mathematics, Computer Science",
-        date: "2013 - 2017",
+        text: "Combinatorics & Optimization and Computational Mathematics",
+        date: "2018 - 2019",
       },
       {
-        text: "Combinatorics & Optimization and Computational Mathematics",
-        date: "2017 - 2019",
+        text: "Computer Science (Co-op)",
+        date: "2013 - 2018",
       },
     ],
   },

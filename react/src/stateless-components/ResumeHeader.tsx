@@ -39,7 +39,6 @@ export class ResumeHeader extends React.Component<_Props> {
           <Stack direction='row' justifyContent='center'>
             <Box display='flex' alignItems='center'>
               {[
-                <Typography noWrap>(226) 978-5620</Typography>,
                 <Link
                   target='_blank'
                   underline='hover'

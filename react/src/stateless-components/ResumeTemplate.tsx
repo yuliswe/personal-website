@@ -45,7 +45,7 @@ export class ResumeTemplate extends React.PureComponent<_Props> {
   render() {
     return (
       <Paper id={this.props.id} ref={this.paperRef} sx={{ borderRadius: 0.5 }}>
-        <Stack spacing={5} m={this.props.fixedMargin || 10}>
+        <Stack spacing={4} m={this.props.fixedMargin || 10}>
           <ResumeHeader
             jobTitle={this.props.jobTitle}
             websiteUrl={this.props.websiteUrl}

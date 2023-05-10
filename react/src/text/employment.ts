@@ -12,7 +12,7 @@ type Employment = {
 };
 export const employment: Employment[] = [
   {
-    title: "Software Engineer",
+    title: "Lead Software Engineer",
     company: "KaleidoDeal",
     location: "ON, Remote",
     date: "Since Jun 2021",
@@ -28,7 +28,7 @@ export const employment: Employment[] = [
     ],
     bulletPoints: [
       {
-        text: "Developed a mobile application from inception to completion, resulting in a product that secured $100,000 in funding for the company.",
+        text: "Developed a Flutter+React app from scratch and optimized user experience, resulting in a product that secured $100,000 in funding for the company.",
         keywords: [
           "*",
           "mobile",
@@ -40,7 +40,7 @@ export const employment: Employment[] = [
         ],
       },
       {
-        text: "Designed and implemented API servers, incorporating a payment system and a streaming system, resulting in a scalable and maintainable backend.",
+        text: "Implemented a Python framework that reduced the amount of server code by 50%, resulting in fast development speed and maintainable backend code.",
         keywords: [
           "*",
           "systemdesign",
@@ -51,7 +51,7 @@ export const employment: Employment[] = [
         ],
       },
       {
-        text: "Effectively led development team delivering software product over 6 months on time and on budget.",
+        text: "Led development team delivering software product on time and within budget, aiding the company's success.",
         keywords: ["*", "communication", "projectmanagement", "leadership"],
       },
     ],
@@ -62,18 +62,18 @@ export const employment: Employment[] = [
     location: "Waterloo, ON",
     date: "Sept 2019 - May 2021",
     keywords: ["*", "c++"],
-    highlight: ["C++", "Network Protocol", "Python", "Docker"],
+    highlight: ["C++", "SQL", "Testing"],
     bulletPoints: [
       {
-        text: "Developed high-performance and error-resilient libraries of SAP HANA database, driving an annual revenue of $25 billion.",
+        text: "Developed high-performance and error-resilient C++ libraries of SAP HANA database, driving an annual revenue of $25 billion for the corporation.",
         keywords: ["*", "c++", "cpp"],
       },
       {
-        text: "Software unit testing, continuous integration, end-to-end testing with complex infrastructures, improving software reliability.",
+        text: "Created unit tests, continuous integration and end-to-end testing for database, reducing the team's bug backlog by 50%.",
         keywords: ["*", "testing", "fullstack"],
       },
       {
-        text: "Provided technical support to customers by phone calls and on forums, resulting in customer satisfaction.",
+        text: "Provided technical support to customers with ticket system and phone calls, resulting in customer satisfaction in quarter reviews.",
         keywords: [
           "*",
           "communication",
@@ -85,19 +85,28 @@ export const employment: Employment[] = [
     ],
   },
   {
-    title: "Research Developer (Part-time)",
+    title: "Developer (Part-time)",
     company: "University of Waterloo",
     location: "ON",
     date: "2015 - 2019",
     keywords: ["*", "assistantship", "research"],
-    highlight: ["C++", "Lisp", "TypeScript", "React", "Nodejs"],
+    highlight: [
+      "C++",
+      "Lisp",
+      "TypeScript",
+      "React",
+      "Nodejs",
+      "CSS",
+      "HTML",
+      "API Server",
+    ],
     bulletPoints: [
       {
         text: "Implemented algorithm with C++ resulting in a 2x speedup of computation, leading to abstracts published in SIGSAM Communications in Computer Algebra.",
         keywords: ["*", "c++", "cpp", "research"],
       },
       {
-        text: "Developed a browser-based code editor and compilation tools, supporting up to 1000 concurrent sessions and utilized by over 10,000 students during a 4-years period.",
+        text: "Developed a browser-based code editor and compilation tools with React, supporting more than 1000 concurrent sessions and utilized by over 10,000 students during a 4-years period.",
         keywords: ["*", "c++"],
       },
     ],

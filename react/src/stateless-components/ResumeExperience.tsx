@@ -60,7 +60,7 @@ export class ResumeExperience extends React.PureComponent<_Props> {
         </Stack>
         {this.props.skills && (
           <Box my={2}>
-            <Typography>Highlight: {this.props.skills.join(", ")}</Typography>
+            <Typography>Expertise: {this.props.skills.join(", ")}</Typography>
           </Box>
         )}
       </Box>
