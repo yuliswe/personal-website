@@ -1,4 +1,8 @@
-export const roles = [
+export const interests = [
+  {
+    title: "Recent Employment",
+    keywords: ["recent-employment"],
+  },
   {
     title: "Web Fullstack",
     keywords: ["fullstack"],
@@ -43,10 +47,6 @@ export const roles = [
     title: "System Design",
     keywords: ["systemdesign"],
   },
-  // {
-  //   title: "Algorithmic/AI Trading",
-  //   keywords: ["algorithmic", "ai", "trading"],
-  // },
   {
     title: "Amazon Web Services",
     keywords: ["aws", "cloud", "cloudcomputing"],
@@ -81,10 +81,10 @@ export const roles = [
   },
 ];
 export const allKeywords = new Set<string>();
-for (const role of roles) {
-  for (const keyword of role.keywords) {
+for (const i of interests) {
+  for (const keyword of i.keywords) {
     allKeywords.add(keyword);
   }
 }
 
-export default roles;
+export default interests;

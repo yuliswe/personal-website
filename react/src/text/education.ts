@@ -7,8 +7,14 @@ export default [
     alwayShow: true,
     keywords: [],
     bulletPoints: [
-      "Bachelor of Mathematics, Computer Science (CO-OP).",
-      "Joint majors in Combinatorics & Optimization and Computational Mathematics.",
+      {
+        text: "Bachelor of Mathematics, Computer Science",
+        date: "2013 - 2017",
+      },
+      {
+        text: "Combinatorics & Optimization and Computational Mathematics",
+        date: "2017 - 2019",
+      },
     ],
   },
 ] as const;

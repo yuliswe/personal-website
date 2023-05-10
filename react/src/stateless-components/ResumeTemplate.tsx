@@ -1,4 +1,4 @@
-import { Container, Link, Paper, Typography } from "@mui/material";
+import { Box, Container, Link, Paper, Typography } from "@mui/material";
 import { Stack } from "@mui/system";
 import React from "react";
 import { ResumeExperience } from "./ResumeExperience";
@@ -18,6 +18,7 @@ import { Config } from "../config";
 import { keywordShouldShow } from "../utils";
 import { projects } from "../text/projects";
 import { ResumeProject } from "./ResumeProject";
+import { skillsSummary } from "../text/skills-summary";
 
 type _Props = {
   fixedMargin?: string;
@@ -44,7 +45,7 @@ export class ResumeTemplate extends React.PureComponent<_Props> {
   render() {
     return (
       <Paper id={this.props.id} ref={this.paperRef} sx={{ borderRadius: 0.5 }}>
-        <Stack spacing={3} m={this.props.fixedMargin || 10}>
+        <Stack spacing={5} m={this.props.fixedMargin || 10}>
           <ResumeHeader
             jobTitle={this.props.jobTitle}
             websiteUrl={this.props.websiteUrl}
@@ -59,7 +60,19 @@ export class ResumeTemplate extends React.PureComponent<_Props> {
               <Typography>{this.props.whyConsiderMe.text}</Typography>
             </ResumeSection>
           )}
-          <ResumeSection title='Employment'>
+          <ResumeSection title='Summary'>
+            <Stack direction='row' display='flex' flexWrap='wrap'>
+              {skillsSummary.map((x, index) => (
+                <>
+                  {index > 0 && <Box mx={1}>&#x2022;</Box>}
+                  <Typography noWrap variant='body1'>
+                    {x}
+                  </Typography>
+                </>
+              ))}
+            </Stack>
+          </ResumeSection>
+          <ResumeSection title='Recent Employment'>
             {employmentData.map(
               (exp, index) =>
                 keywordShouldShow(this.props.urlKeywords, exp.keywords) && (
@@ -75,7 +88,8 @@ export class ResumeTemplate extends React.PureComponent<_Props> {
                       company={exp.company}
                       location={exp.location}
                       date={exp.date}
-                      mediaQuery={this.props.mediaQuery}>
+                      mediaQuery={this.props.mediaQuery}
+                      skills={exp.highlight}>
                       {exp.bulletPoints.map(
                         (pt, index) =>
                           keywordShouldShow(
@@ -107,12 +121,15 @@ export class ResumeTemplate extends React.PureComponent<_Props> {
                 date={item.date}
                 mediaQuery={this.props.mediaQuery}>
                 {item.bulletPoints.map((x, index) => (
-                  <Typography key={index}>{x}</Typography>
+                  <Box display='flex' justifyContent='space-between'>
+                    <Typography key={index}>{x.text}</Typography>
+                    <Typography key={index}>{x.date}</Typography>
+                  </Box>
                 ))}
               </ResumeExperience>
             ))}
           </ResumeSection>
-          <ResumeSection title='Software Enginnering'>
+          {/* <ResumeSection title='Software Enginnering'>
             {skillData.map(
               (item, index) =>
                 keywordShouldShow(this.props.urlKeywords, item.keywords) && (
@@ -132,7 +149,7 @@ export class ResumeTemplate extends React.PureComponent<_Props> {
                   </Stack>
                 )
             )}
-          </ResumeSection>
+          </ResumeSection> */}
           {this.showProjectSection() && (
             <ResumeSection title='Portfolio'>
               {projects.map((project) => (
@@ -143,7 +160,7 @@ export class ResumeTemplate extends React.PureComponent<_Props> {
               ))}
             </ResumeSection>
           )}
-          {this.props.isPrintedVersion && (
+          {/* {this.props.isPrintedVersion && (
             <Typography variant='caption'>
               Visit
               <Link href={this.props.websiteUrl.href} px={0.5}>
@@ -151,7 +168,7 @@ export class ResumeTemplate extends React.PureComponent<_Props> {
               </Link>{" "}
               to learn more about me.
             </Typography>
-          )}
+          )} */}
         </Stack>
       </Paper>
     );

@@ -11,7 +11,7 @@ import { MyCareerGoal } from "../stateless-components/MyCareerGoal";
 import { jsPDF } from "jspdf";
 import PrintIcon from "@mui/icons-material/Print";
 import { AppContextType, defaultAppContext } from "../AppContext";
-import { allKeywords } from "../text/rols";
+import { allKeywords } from "../text/interests";
 import { WhyConsiderMe } from "../stateless-components/WhyConsiderMe";
 import { whyConsiderMe } from "../text/why-consider-me";
 import { companyKeywords } from "../text/company-keywords-map";
@@ -136,7 +136,7 @@ export class ResumePage extends React.Component<_Props, _State> {
         return data.jobTitle;
       }
     }
-    return "Senior Software Engineer";
+    return "Software Engineer";
   }
 
   getHighlightKeywords(): string[] {
@@ -368,7 +368,7 @@ export class ResumePage extends React.Component<_Props, _State> {
                 websiteUrl={this.getWebsiteUrlForCompany()}
                 isPrintedVersion={true}
                 urlKeywords={this.getEnabledKeywords()}
-                fixedMargin='50pt'></ResumeTemplate>
+                fixedMargin='40pt'></ResumeTemplate>
             </ThemeProvider>
           </Box>
           <Stack my={10} spacing={2}>

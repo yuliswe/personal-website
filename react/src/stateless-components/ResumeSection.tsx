@@ -16,9 +16,10 @@ export class ResumeSection extends React.PureComponent<_Props> {
 
   render() {
     return (
-      <Stack spacing={3} {...this.topAttrs}>
+      <Box>
         <Typography
           className='MuiTypography-h7 follow-next'
+          mb={1}
           sx={{
             borderBottom: "2px solid black",
             textTransform: "uppercase",
@@ -31,8 +32,10 @@ export class ResumeSection extends React.PureComponent<_Props> {
           }}>
           {this.props.title}
         </Typography>
-        {this.props.children}
-      </Stack>
+        <Stack spacing={1} {...this.topAttrs}>
+          {this.props.children}
+        </Stack>
+      </Box>
     );
   }
 }

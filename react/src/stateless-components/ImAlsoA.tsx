@@ -1,6 +1,6 @@
 import { Box, Chip, Link, Stack, Typography } from "@mui/material";
 import React, { MouseEvent } from "react";
-import roles from "../text/rols";
+import interests from "../text/interests";
 import { intersects } from "../utils";
 type _Props = {
   highlightKeywords: string[];
@@ -18,7 +18,7 @@ export class ImAlsoA extends React.PureComponent<_Props> {
           Select all that apply. The CV is shown according to your selection.
         </Typography>
         <Stack direction='row' flexWrap='wrap' justifyItems='flex-start' mt={2}>
-          {roles.map(({ title, keywords }, index) => {
+          {interests.map(({ title, keywords }, index) => {
             let highlighted =
               this.props.highlightKeywords.includes("*") ||
               intersects(keywords, this.props.highlightKeywords);

@@ -4,6 +4,7 @@ type Employment = {
   location: string;
   date: string;
   keywords: string[];
+  highlight: string[];
   bulletPoints: {
     text: string;
     keywords: string[];
@@ -12,22 +13,24 @@ type Employment = {
 export const employment: Employment[] = [
   {
     title: "Software Engineer",
-    company: "KaleidoDeal Inc.",
-    location: "Waterloo, ON",
-    date: "2022 - 2023",
-    keywords: ["*"],
+    company: "KaleidoDeal",
+    location: "ON, Remote",
+    date: "Since Jun 2021",
+    keywords: ["*", "c++"],
+    highlight: [
+      "Python",
+      "TypeScript",
+      "Flutter",
+      "React",
+      "GraphQL",
+      "Terraform",
+      "AWS",
+    ],
     bulletPoints: [
       {
-        text: "Excellent leadership and product management skills applying the Scrum/Agile principles.",
-        keywords: ["projectmanagement", "leadership"],
-      },
-      {
-        text: "Led the design and implementation of REST APIs with Python/Django, GraphQL server with JavaScript/NodeJS, resulting in a scalable and maintainable backend.",
-        keywords: ["systemdesign", "api", "fullstack", "python", "javascript"],
-      },
-      {
-        text: "Led the UX design to create an intuitive mobile app implemented in Flutter and ReactJS.",
+        text: "Developed a mobile application from inception to completion, resulting in a product that secured $100,000 in funding for the company.",
         keywords: [
+          "*",
           "mobile",
           "ios",
           "django",
@@ -37,45 +40,42 @@ export const employment: Employment[] = [
         ],
       },
       {
-        text: "Deployed scaleable backend systems of microservices architecture with AWS Lambda, SQS, and Kubernetes.",
-        keywords: ["distributedsystems", "aws"],
+        text: "Designed and implemented API servers, incorporating a payment system and a streaming system, resulting in a scalable and maintainable backend.",
+        keywords: [
+          "*",
+          "systemdesign",
+          "api",
+          "fullstack",
+          "python",
+          "javascript",
+        ],
       },
       {
-        text: "Designed and implemented distributed payment and streaming systems.",
-        keywords: ["systemdesign", "systemdesigns"],
-      },
-      {
-        text: "Collaborated with stakeholders to design the app's requirements, and effectively communicated them to the rest of the team.",
-        keywords: ["communication", "projectmanagement", "leadership"],
+        text: "Effectively led development team delivering software product over 6 months on time and on budget.",
+        keywords: ["*", "communication", "projectmanagement", "leadership"],
       },
     ],
   },
   {
-    title: "Database Engineer",
+    title: "Database Software Engineer",
     company: "SAP Canada",
     location: "Waterloo, ON",
-    date: "2019 - 2021",
-    keywords: ["*"],
+    date: "Sept 2019 - May 2021",
+    keywords: ["*", "c++"],
+    highlight: ["C++", "Network Protocol", "Python", "Docker"],
     bulletPoints: [
       {
-        text: "Developed high-performance and error-resilient client libraries of SAP HANA database in C++.",
-        keywords: ["c++", "cpp"],
+        text: "Developed high-performance and error-resilient libraries of SAP HANA database, driving an annual revenue of $25 billion.",
+        keywords: ["*", "c++", "cpp"],
       },
       {
-        text: "Implemented proprietary TCP protocols in C++.",
-        keywords: ["c++", "cpp", "networking"],
-      },
-      {
-        text: "Maintained C++ client library code for compatibility across different versions of APIs.",
-        keywords: ["systemdesign", "api", "fullstack"],
-      },
-      {
-        text: "Unit, end-to-end and continuous integration testing for complex infrastructures and database operations.",
-        keywords: ["testing", "fullstack"],
+        text: "Software unit testing, continuous integration, end-to-end testing with complex infrastructures, improving software reliability.",
+        keywords: ["*", "testing", "fullstack"],
       },
       {
         text: "Provided technical support to customers by phone calls and on forums, resulting in customer satisfaction.",
         keywords: [
+          "*",
           "communication",
           "projectmanagement",
           "leadership",
@@ -85,49 +85,20 @@ export const employment: Employment[] = [
     ],
   },
   {
-    title: "C++ Research Assistant",
+    title: "Research Developer (Part-time)",
     company: "University of Waterloo",
     location: "ON",
-    date: "2017 - 2018",
-    keywords: ["assistantship", "research"],
+    date: "2015 - 2019",
+    keywords: ["*", "assistantship", "research"],
+    highlight: ["C++", "Lisp", "TypeScript", "React", "Nodejs"],
     bulletPoints: [
       {
-        text: "Developed large integer arithmetic computation algorithms in C++ using complex data structures.",
-        keywords: ["c++", "cpp", "research"],
+        text: "Implemented algorithm with C++ resulting in a 2x speedup of computation, leading to abstracts published in SIGSAM Communications in Computer Algebra.",
+        keywords: ["*", "c++", "cpp", "research"],
       },
       {
-        text: "Wrote a clear and concise technical white paper that explained complex mathematical concepts in an accessible way.",
-        keywords: [
-          "documentation",
-          "reportwriting",
-          "communication",
-          "research",
-        ],
-      },
-      {
-        text: "Presented research progress updates at regular meetings, facilitating productive discussions with team members and leadership and enabling the project to stay on track to meet important deadlines.",
-        keywords: ["communication", "presentation", "leadership", "research"],
-      },
-    ],
-  },
-  {
-    title: "Fullstack Engineer",
-    company: "University of Waterloo",
-    location: "ON",
-    date: "2015 - 2017",
-    keywords: ["*"],
-    bulletPoints: [
-      {
-        text: "Developed a fully functional web-based C code integrated development environment using ReactJS, HTML, CSS, and JavaScript.",
-        keywords: ["javascript", "reactjs", "fullstack", "web"],
-      },
-      {
-        text: "Implemented real-time client-server communication using WebSockets, enhancing user experience and efficiency.",
-        keywords: ["fullstack", "networking"],
-      },
-      {
-        text: "Built APIs using Common Lisp, a functional programming language, to facilitate seamless data transfer and support system scalability.",
-        keywords: ["lisp", "fullstack", "web", "api", "fpl"],
+        text: "Developed a browser-based code editor and compilation tools, supporting up to 1000 concurrent sessions and utilized by over 10,000 students during a 4-years period.",
+        keywords: ["*", "c++"],
       },
     ],
   },
@@ -136,7 +107,8 @@ export const employment: Employment[] = [
     company: "University of Waterloo",
     location: "ON",
     date: "2014 - 2017",
-    keywords: ["assistantship", "teaching"],
+    keywords: ["full-employment"],
+    highlight: ["Teaching", "Leadership", "Teamwork"],
     bulletPoints: [
       {
         text: "Taught students how to program in C. Demonstrated the ability to communicate technical concepts to non-technical audiences.",
@@ -157,7 +129,8 @@ export const employment: Employment[] = [
     company: "Evertz Microsystem",
     location: "Burlington, ON",
     date: "2014 - 2015",
-    keywords: ["*"],
+    keywords: ["full-employment"],
+    highlight: ["TypeScript", "Angular", "CSS", "Rest API"],
     bulletPoints: [
       {
         text: "Designed and developed a web-based infrastructure platform using AngularJS, HTML, and CSS.",

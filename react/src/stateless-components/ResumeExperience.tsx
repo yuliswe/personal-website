@@ -9,6 +9,7 @@ type _Props = {
   date: string;
   children: React.ReactNode[];
   mediaQuery?: typeof mediaQuery;
+  skills?: string[];
 };
 
 export class ResumeExperience extends React.PureComponent<_Props> {
@@ -47,7 +48,7 @@ export class ResumeExperience extends React.PureComponent<_Props> {
             </Typography>
           </Grid>
         </Grid>
-        <Box component='ul' my={1} pl={2}>
+        <Stack component='ul' my={1} pl={2} spacing={0.5}>
           {this.props.children.map(
             (child, index) =>
               child && (
@@ -56,7 +57,12 @@ export class ResumeExperience extends React.PureComponent<_Props> {
                 </Box>
               )
           )}
-        </Box>
+        </Stack>
+        {this.props.skills && (
+          <Box my={2}>
+            <Typography>Highlight: {this.props.skills.join(", ")}</Typography>
+          </Box>
+        )}
       </Box>
     );
   }

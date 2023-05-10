@@ -21,54 +21,49 @@ export class ResumeHeader extends React.Component<_Props> {
   render() {
     return (
       <React.Fragment>
-        <Grid
-          container
-          justifyContent='space-between'
-          spacing={this.smallScreen ? 10 : 0}>
-          <Grid
-            item
-            xs={this.smallScreen ? 12 : 3}
-            textAlign={this.smallScreen ? "center" : "left"}>
-            <Typography variant='h6'>Current Address</Typography>
-            <Typography>453 Bronco Cres</Typography>
-            <Typography>Waterloo, ON, N2K 4L1</Typography>
-            <Typography>Canada</Typography>
-          </Grid>
-          <Grid item xs={this.smallScreen ? 12 : 3} flexGrow='1'>
-            <Box ml={2}>
-              <Typography
-                variant='h6'
-                sx={{
-                  textAlign: "center",
-                }}>
-                Yu Li
-              </Typography>
+        <Stack>
+          <Box ml={2}>
+            <Typography
+              variant='h6'
+              sx={{
+                textAlign: "center",
+              }}>
+              Yu Li
+            </Typography>
+            <Box>
               <Typography sx={{ textAlign: "center" }}>
                 {this.props.jobTitle}
               </Typography>
             </Box>
-          </Grid>
-          <Grid
-            item
-            xs={this.smallScreen ? 12 : 3}
-            textAlign={this.smallScreen ? "center" : "left"}>
-            <Stack
-              direction={this.smallScreen ? "column" : "row"}
-              spacing={3}
-              alignItems='center'
-              justifyContent={this.smallScreen ? "center" : "left"}>
-              <QRCodeCanvas
-                size={50}
-                value={this.props.websiteUrl.href}></QRCodeCanvas>
-              <Box>
-                <Typography variant='h6'>Contact</Typography>
-                <Typography>ylilarry@gmail.com</Typography>
-                <Typography>(226) 978-5620</Typography>
-                <Typography>{this.companyUrlBare}</Typography>
-              </Box>
-            </Stack>
-          </Grid>
-        </Grid>
+          </Box>
+          <Stack direction='row' justifyContent='center'>
+            <Box display='flex' alignItems='center'>
+              {[
+                <Typography noWrap>(226) 978-5620</Typography>,
+                <Link
+                  target='_blank'
+                  underline='hover'
+                  href='mailto:contact@yuli.se'>
+                  contact@yuli.se
+                </Link>,
+                <Link
+                  target='_blank'
+                  underline='hover'
+                  href='https://www.linkedin.com/in/yulise'>
+                  LinkedIn
+                </Link>,
+                <Link target='_blank' underline='hover' href='https://yuli.se'>
+                  CV
+                </Link>,
+                <Typography>Waterloo, Canada</Typography>,
+              ].map((x, i) => (
+                <>
+                  {i > 0 && <Box mx={1}>&#x2022;</Box>} {x}
+                </>
+              ))}
+            </Box>
+          </Stack>
+        </Stack>
       </React.Fragment>
     );
   }

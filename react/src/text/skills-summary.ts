@@ -1,0 +1,16 @@
+export const skillsSummary = [
+  "C++",
+  "Go",
+  "Python",
+  "TypeScript",
+  "Nodejs",
+  "SQL",
+  "React",
+  "Angular",
+  "REST",
+  "GraphQL",
+  "Cloud Computing Platforms",
+  "System Design",
+  "Terraform",
+  "Serverless",
+];
