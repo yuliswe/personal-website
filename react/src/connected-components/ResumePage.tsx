@@ -1,76 +1,119 @@
+import PrintIcon from "@mui/icons-material/Print";
 import { Box, Button, Grid, Stack, ThemeProvider } from "@mui/material";
+import { jsPDF } from "jspdf";
+import queryString from "query-string";
 import React from "react";
+import { Helmet } from "react-helmet-async";
+import { AppContextType, defaultAppContext } from "../AppContext";
+import { Arial } from "../Arial";
+import { ArialBold } from "../Arial-bold";
+import { AppBar } from "../stateless-components/AppBar";
 import { ImAlsoA } from "../stateless-components/ImAlsoA";
 import { IntroduceSelf } from "../stateless-components/IntroduceSelf";
-import { MyCareerSoFar } from "../stateless-components/MyCareerSoFar";
-import { ResumeTemplate } from "../stateless-components/ResumeTemplate";
-import queryString from "query-string";
-import { MyStories } from "../stateless-components/MyStories";
-import myStoriesData, { MyStory } from "../text/stories";
 import { MyCareerGoal } from "../stateless-components/MyCareerGoal";
-import { jsPDF } from "jspdf";
-import PrintIcon from "@mui/icons-material/Print";
-import { AppContextType, defaultAppContext } from "../AppContext";
-import { allKeywords } from "../text/interests";
-import { WhyConsiderMe } from "../stateless-components/WhyConsiderMe";
-import { whyConsiderMe } from "../text/why-consider-me";
-import { companyKeywords } from "../text/company-keywords-map";
-import { Helmet } from "react-helmet-async";
+import { MyCareerSoFar } from "../stateless-components/MyCareerSoFar";
+import { MyStories } from "../stateless-components/MyStories";
+import { ResumeTemplate } from "../stateless-components/ResumeTemplate";
 import { SiteLayout } from "../stateless-components/SiteLayout";
-import { AppBar } from "../stateless-components/AppBar";
+import { WhyConsiderMe } from "../stateless-components/WhyConsiderMe";
+import { companyKeywords } from "../text/company-keywords-map";
+import { allKeywords } from "../text/interests";
+import myStoriesData, { MyStory } from "../text/stories";
+import { whyConsiderMe } from "../text/why-consider-me";
 type _Props = {};
 
 type _State = {
   myStories: MyStory[];
 };
 
-function splitPages(n: Element, maxHeight: number = 1056, vMargin: number = 0) {
+function px2pt(px: number): number {
+  return px * 0.75;
+}
+
+function pt2px(pt: number): number {
+  return pt / 0.75;
+}
+
+function splitPages(
+  n: Element,
+  pageHeight: number = 1056,
+  vMargin: number = pt2px(40)
+) {
   n.querySelectorAll("[data-page-break]").forEach((x) => x.remove());
-  function insertSpace(n: Element, maxHeight: number, vMargin: number) {
-    let { top } = n.getBoundingClientRect();
-    let goodBottom = top;
-    let followNext: Element | null = null;
-    function _insertSpace(n: Element, maxY: number) {
-      for (let child of n.children) {
-        let { bottom } = child.getBoundingClientRect();
-        if (bottom <= maxY) {
-          if (child.classList.contains("follow-next")) {
-            followNext = child;
-          } else {
-            goodBottom = Math.max(goodBottom, bottom);
-            followNext = null;
-          }
+  const { top } = n.getBoundingClientRect();
+  let goodBottom = top; // keep track of the bottom of the last element that fit on the page
+  let followNext: Element | null = null;
+  let pageStartY = top;
+  let pageEndY = top + pageHeight;
+  function _insertSpace(n: Element) {
+    for (let child of n.children) {
+      if (child.clientHeight === 0) {
+        continue; // skip empty elements
+      }
+      let { bottom } = child.getBoundingClientRect();
+      const childStyle = window.getComputedStyle(child);
+      bottom -= Number.parseInt(childStyle.marginBottom);
+      bottom -= Number.parseInt(childStyle.paddingBottom);
+      // if element + margin is within page. requires at least half of margin at
+      // bottom
+      if (bottom + vMargin / 2 <= pageEndY) {
+        if (child.classList.contains("follow-next")) {
+          followNext = child;
         } else {
-          if (followNext != null) {
-            let space = document.createElement("div");
-            space.setAttribute("data-page-break", "1");
-            let spaceHeight = maxY - goodBottom + vMargin * 2;
-            space.style.height = `${spaceHeight}px`;
-            n.insertBefore(space, followNext);
-          } else if (
-            child.children.length === 0 ||
-            child.classList.contains("keep-together")
-          ) {
-            let space = document.createElement("div");
-            space.setAttribute("data-page-break", "1");
-            let spaceHeight = maxY - goodBottom + vMargin * 2;
-            space.style.height = `${spaceHeight}px`;
-            n.insertBefore(space, child);
-          } else {
-            _insertSpace(child, maxY);
-          }
-          break;
+          goodBottom = Math.max(goodBottom, bottom);
+          followNext = null;
+        }
+      }
+      // if element + margin is taller than page, need to insert space
+      else {
+        let firstItemInNextPage = child;
+        // if there is a follow-next element, insert space before it instead.
+        // Follow-next elements always stays together with the next element in a
+        // page split.
+        if (followNext != null) {
+          firstItemInNextPage = followNext;
+        }
+        // if the current item is a leaf or a keep-together element, insert
+        // space before it instead. Keep together elements is never split across
+        // pages.
+        if (
+          child.children.length === 0 ||
+          child.classList.contains("keep-together")
+        ) {
+          const space = document.createElement("div");
+          space.setAttribute("data-page-break", "1");
+          const spaceHeight = pageEndY - goodBottom + vMargin;
+          space.style.height = `${spaceHeight}px`;
+          n.insertBefore(space, firstItemInNextPage);
+          pageStartY = pageEndY;
+          pageEndY += pageHeight;
+        } else {
+          _insertSpace(child);
         }
       }
     }
-    return _insertSpace(n, top + maxHeight - 2 * vMargin);
   }
+  _insertSpace(n);
+}
 
-  let nPages = 1;
-  while (nPages * maxHeight <= n.clientHeight) {
-    insertSpace(n, maxHeight * nPages, vMargin);
-    nPages++;
+function addHyperLinks(root: Element, doc: jsPDF) {
+  const rootRect = root.getBoundingClientRect();
+  function recurAddHyperLinks(n: Element) {
+    if (n instanceof HTMLAnchorElement) {
+      const anchorEl = n.getBoundingClientRect();
+      const x = px2pt(anchorEl.x - rootRect.x);
+      const y = px2pt(anchorEl.y - rootRect.y);
+      const w = px2pt(anchorEl.width);
+      const h = px2pt(anchorEl.height);
+      doc.link(x, y, w, h, {
+        url: n.href,
+      });
+    }
+    for (let child of n.children) {
+      recurAddHyperLinks(child);
+    }
   }
+  recurAddHyperLinks(root);
 }
 
 export class ResumePage extends React.Component<_Props, _State> {
@@ -223,20 +266,7 @@ export class ResumePage extends React.Component<_Props, _State> {
     this.setHighlightKeywords(newKeywords);
   }
 
-  componentDidMount(): void {
-    // if (
-    //   this._context.routes?.params?.["company"] == undefined &&
-    //   this._context.routes?.search?.get("keywords") == null
-    // ) {
-    //   //console.log("navigate");
-    //   // document.location.search = new URLSearchParams("keywords=*").toString();
-    //   // redirect(this._context.routes?.location.pathname + "?keywords=*");
-    //   this._context.routes?.navigate({
-    //     pathname: this._context.routes?.location.pathname,
-    //     search: "?keywords=*",
-    //   });
-    // }
-  }
+  componentDidMount(): void {}
 
   componentDidUpdate(
     prevProps: Readonly<_Props>,
@@ -244,7 +274,8 @@ export class ResumePage extends React.Component<_Props, _State> {
     snapshot?: any
   ): void {
     if (this.resumeRef.current && this.resumeRef.current.paperRef.current) {
-      splitPages(this.resumeRef.current.paperRef.current);
+      const rootEl = this.resumeRef.current.paperRef.current;
+      splitPages(rootEl);
     }
   }
 
@@ -265,23 +296,30 @@ export class ResumePage extends React.Component<_Props, _State> {
       putOnlyUsedFonts: true,
       compress: true,
     });
-    pdf.setFont("Helvetica");
-    splitPages(this.resumeRef.current!.paperRef!.current as HTMLElement);
-    pdf.html(this.resumeRef.current?.paperRef.current as HTMLElement, {
+    pdf.addFileToVFS("Arial.ttf", Arial);
+    pdf.addFont("Arial.ttf", "Arial", "normal");
+    pdf.addFileToVFS("Arial-bold.ttf", ArialBold);
+    pdf.addFont("Arial-bold.ttf", "Arial", "bold");
+    pdf.setFont("Arial");
+    // pdf.setFontSize(11);
+    const rootEl = this.resumeRef.current!.paperRef!.current as HTMLElement;
+    splitPages(rootEl);
+    addHyperLinks(rootEl, pdf);
+    pdf.html(rootEl as HTMLElement, {
       callback: async (doc) => {
-        let filename = (this.getCompanyFromUrl() || "resume") + ".pdf";
+        let filename =
+          "yuli-se-" + (this.getCompanyFromUrl() || "resume") + ".pdf";
         // doc.output("dataurlnewwindow", {
         //   filename,
-        // });
-        let output = doc.output("blob");
-        window.open(URL.createObjectURL(output), "_blank");
-        // doc.save(filename);
+        // // });
+        // let output = doc.output("blob");
+        // window.open(URL.createObjectURL(output), "_blank");
+        doc.save(filename);
       },
       x: 0,
       y: 0,
       html2canvas: {
-        scale:
-          612 / (this.resumeRef.current?.paperRef.current?.scrollWidth || 1),
+        scale: 612 / (rootEl.scrollWidth || 1),
       },
     });
   }

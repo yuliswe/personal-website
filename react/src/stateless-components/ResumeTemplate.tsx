@@ -21,7 +21,7 @@ import { ResumeProject } from "./ResumeProject";
 import { skillsSummary } from "../text/skills-summary";
 
 type _Props = {
-  fixedMargin?: string;
+  fixedMargin?: string; // ignore responsive margins
   id?: string;
   mediaQuery?: typeof mediaQuery;
   urlKeywords: string[];
@@ -45,7 +45,7 @@ export class ResumeTemplate extends React.PureComponent<_Props> {
   render() {
     return (
       <Paper id={this.props.id} ref={this.paperRef} sx={{ borderRadius: 0.5 }}>
-        <Stack spacing={4} m={this.props.fixedMargin || 10}>
+        <Stack spacing={4} p={this.props.fixedMargin || 10}>
           <ResumeHeader
             jobTitle={this.props.jobTitle}
             websiteUrl={this.props.websiteUrl}
@@ -63,12 +63,12 @@ export class ResumeTemplate extends React.PureComponent<_Props> {
           <ResumeSection title='Summary'>
             <Stack direction='row' display='flex' flexWrap='wrap'>
               {skillsSummary.map((x, index) => (
-                <>
+                <React.Fragment key={index}>
                   {index > 0 && <Box mx={1}>&#x2022;</Box>}
                   <Typography noWrap variant='body1'>
                     {x}
                   </Typography>
-                </>
+                </React.Fragment>
               ))}
             </Stack>
           </ResumeSection>
@@ -121,9 +121,12 @@ export class ResumeTemplate extends React.PureComponent<_Props> {
                 date={item.date}
                 mediaQuery={this.props.mediaQuery}>
                 {item.bulletPoints.map((x, index) => (
-                  <Box display='flex' justifyContent='space-between'>
-                    <Typography key={index}>{x.text}</Typography>
-                    <Typography key={index}>{x.date}</Typography>
+                  <Box
+                    key={index}
+                    display='flex'
+                    justifyContent='space-between'>
+                    <Typography>{x.text}</Typography>
+                    <Typography>{x.date}</Typography>
                   </Box>
                 ))}
               </ResumeExperience>
@@ -152,7 +155,7 @@ export class ResumeTemplate extends React.PureComponent<_Props> {
           </ResumeSection> */}
           {this.showProjectSection() && (
             <ResumeSection title='Portfolio'>
-              {projects.map((project) => (
+              {projects.map((project, index) => (
                 <ResumeProject
                   key={project.title}
                   {...project}

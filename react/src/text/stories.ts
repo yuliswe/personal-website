@@ -6,7 +6,7 @@ export type MyStory = {
 export const stories: MyStory[] = [
   {
     title: "...Fullstack",
-    keywords: ["fullstack"],
+    keywords: ["recent-employment", "fullstack"],
     text: `
     My first experience with web development was with PHP and MySQL in 2012, writing native JavaScript with jQuery for the front-end.
     As the web technologies evolved, I moved on to AngularJS and EmberJS and used them during my first paid internship in 2015. 
@@ -19,7 +19,7 @@ export const stories: MyStory[] = [
   },
   {
     title: "...Python",
-    keywords: ["fullstack"],
+    keywords: ["recent-employment", "fullstack"],
     text: `
     Python is my go-to language for scripting and prototyping. I have used it to automate my work, build web scrapers, and develop data science tools.
     I have also used Django and Flask for building web applications. I also use numpy, pandas, and scikit-learn for data science and machine learning.
@@ -27,7 +27,7 @@ export const stories: MyStory[] = [
   },
   {
     title: "...Django/Flask",
-    keywords: ["django", "flask"],
+    keywords: ["recent-employment", "django", "flask"],
     text: `
     I have written and maintained legacy codebases using Django and Flask. I have also contributed to the Django source code by submitting bug fixes and pull requests. 
     Working with Django's ORM was an enjoyable experience, and I have written a REST-API framework for Django to simplify the frontend-backend communication as well as authorization.
@@ -36,7 +36,7 @@ export const stories: MyStory[] = [
   },
   {
     title: "...JavaScript/TypeScript",
-    keywords: ["javascript", "typescript"],
+    keywords: ["recent-employment", "javascript", "typescript"],
     text: `
     TypeScript has become my favorite programming language in the past few years. I have used it to develop web applications, mobile applications, and even desktop applications.
     I am an expert in TypeScript and the tools that come with the JavaScript ecosystem, such as NPM, Webpack, Babel, and ESLint. 
@@ -57,7 +57,7 @@ export const stories: MyStory[] = [
   },
   {
     title: "...Flutter",
-    keywords: ["flutter", "mobile", "ios", "android"],
+    keywords: ["recent-employment", "flutter", "mobile", "ios", "android"],
     text: `
     When I worked as a technical director at KaleidoDeal, my team and I collectively chose Flutter for developing our iOS app.
     I have no doubt that Flutter is the future of mobile app development, because of the speed of development and efficiency of rendering it provides. In the past, I have used similar technologies such as Qt (for desktop apps) and React Native, but Flutter is by far the best in terms of the rendering time and UI feel.
@@ -76,7 +76,7 @@ export const stories: MyStory[] = [
   },
   {
     title: "...C++",
-    keywords: ["c++", "cpp", "cplusplus"],
+    keywords: ["recent-employment", "c++", "cpp", "cplusplus"],
     text: `
     I have used C++ to develop desktop applications with Qt. When I worked as a Database Engineer at SAP Canada, our team was responsible for developing and maintaining the  C++ client library for the SAP HANA database,
     as well as a command-line tool for managing the database. I have also used C++ to develop a few data structures and algorithms for research projects at the university when I worked with a professor as a research assistant.
@@ -101,7 +101,7 @@ export const stories: MyStory[] = [
   },
   {
     title: "...Amazon Web Services",
-    keywords: ["aws"],
+    keywords: ["recent-employment", "aws"],
     text: `
     I use AWS Lambda, API Gateway, SQS, S3, RDS, DynamoDB, and CloudFront for developing microservices-based web applications. 
     I have also used AWS Amplify and AppSync for quickly prototyping apps. I am familiar with the AWS CLI and the AWS SDK for JavaScript, 
@@ -110,9 +110,9 @@ export const stories: MyStory[] = [
   },
   {
     title: "...Product Management",
-    keywords: ["projectmanagement"],
+    keywords: ["recent-employment", "projectmanagement"],
     text: `
-    As a technical director at KaleidoDeal, I was responsible for managing the development of our short-video based e-commerce app. 
+    As a technical lead at KaleidoDeal, I was responsible for managing the development of our short-video based e-commerce app. 
     Our team consisted of 5 developers and 1 UI designer. At the beginning of COVID-19, remote work had become an essential part of our work,
     and everyone was thrown off guard. I had to quickly learn how to manage a remote team and how to communicate with them effectively. Because 
     when you don't have a physical office, you easily become mentally disconnected from your team. And this goes both ways: engineers 

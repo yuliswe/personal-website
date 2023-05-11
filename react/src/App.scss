@@ -29,45 +29,19 @@
 }
 
 .MuiTypography-root.MuiTypography-h6 {
-  font-size: 1.1rem;
-  font-weight: 900;
-}
-
-.MuiTypography-root.MuiTypography-body1.MuiTypography-h7 {
   font-size: 1rem;
-  font-weight: 900;
+  font-weight: 600;
 }
 
 #force-font-for-pdf * {
-  font-family: "Helvetica", "Arial", sans-serif;
+  font-family: "Arial", sans-serif;
   line-height: 125%;
-  font-size: 10pt;
-}
-
-#force-font-for-pdf .MuiTypography-h6 {
-  /* line-height: 100%; */
-}
-
-#force-font-for-pdf .MuiTypography-body1 {
   font-size: 11pt;
-}
-
-#force-font-for-pdf .MuiTypography-caption,
-#force-font-for-pdf .MuiTypography-caption * {
-  font-size: 8pt;
-}
-#force-font-for-pdf .ResumeExperience {
-  margin-top: 5pt;
-}
-
-#force-font-for-pdf .MuiTypography-root.MuiTypography-body1.MuiTypography-h7 {
-  font-size: 10pt;
+  .MuiTypography-root.MuiTypography-h6 {
+    font-weight: 900;
+  }
 }
 
 .underline {
   text-decoration: underline;
-}
-
-#force-font-for-pdf li {
-  /* padding-left: 1em; */
 }

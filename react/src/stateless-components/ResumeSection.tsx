@@ -18,13 +18,14 @@ export class ResumeSection extends React.PureComponent<_Props> {
     return (
       <Box>
         <Typography
-          className='MuiTypography-h7 follow-next'
+          variant='h6'
           mb={1}
           sx={{
             borderBottom: "2px solid black",
             textTransform: "uppercase",
           }}
           style={{
+            fontSize: "0.9em",
             marginLeft: "-0rem",
             paddingLeft: "0rem",
             marginRight: "-0rem",

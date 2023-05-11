@@ -6,7 +6,7 @@ import "@fontsource/roboto/400.css";
 import "@fontsource/roboto/500.css";
 import "@fontsource/roboto/700.css";
 import "@fontsource/roboto/900.css";
-import "./App.css";
+import "./App.scss";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import { AppContextType } from "./AppContext";
 import {

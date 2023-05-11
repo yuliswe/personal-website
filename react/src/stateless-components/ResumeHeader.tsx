@@ -1,5 +1,4 @@
-import { Box, Grid, Link, Stack, Typography } from "@mui/material";
-import { QRCodeCanvas, QRCodeSVG } from "qrcode.react";
+import { Box, Link, Stack, Typography } from "@mui/material";
 import React from "react";
 import { mediaQuery } from "../AppContext";
 type _Props = {
@@ -37,7 +36,11 @@ export class ResumeHeader extends React.Component<_Props> {
             </Box>
           </Box>
           <Stack direction='row' justifyContent='center'>
-            <Box display='flex' alignItems='center'>
+            <Box
+              display='flex'
+              alignItems='center'
+              flexWrap='wrap'
+              justifyContent='center'>
               {[
                 <Link
                   target='_blank'
@@ -52,13 +55,13 @@ export class ResumeHeader extends React.Component<_Props> {
                   LinkedIn
                 </Link>,
                 <Link target='_blank' underline='hover' href='https://yuli.se'>
-                  CV
+                  Website
                 </Link>,
                 <Typography>Waterloo, Canada</Typography>,
               ].map((x, i) => (
-                <>
+                <React.Fragment key={i}>
                   {i > 0 && <Box mx={1}>&#x2022;</Box>} {x}
-                </>
+                </React.Fragment>
               ))}
             </Box>
           </Stack>
