@@ -2,6 +2,7 @@ export const skillsSummary = [
   "C++",
   "Go",
   "SQL",
+  "NoSQL",
   "Python",
   "TypeScript",
   "Nodejs",
