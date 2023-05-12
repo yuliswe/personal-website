@@ -18,7 +18,7 @@ export class AppBar extends React.Component {
           <Typography variant='h5' sx={{ flexGrow: 1 }}></Typography>
           <Link
             color='inherit'
-            href='https://github.com/ylilarry'
+            href='https://github.com/yuliswe'
             target='_blank'>
             <IconButton color='inherit'>
               <GitHubIcon />
@@ -26,7 +26,7 @@ export class AppBar extends React.Component {
           </Link>
           <Link
             color='inherit'
-            href='https://www.linkedin.com/in/ylilarry/'
+            href='https://www.linkedin.com/in/yulise/'
             target='_blank'>
             <IconButton color='inherit'>
               <LinkedInIcon />

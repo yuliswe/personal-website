@@ -57,6 +57,12 @@ export class ResumeHeader extends React.Component<_Props> {
                 <Link target='_blank' underline='hover' href='https://yuli.se'>
                   Website
                 </Link>,
+                <Link
+                  target='_blank'
+                  underline='hover'
+                  href='https://github.com/yuliswe'>
+                  Github
+                </Link>,
                 <Typography>Waterloo, Canada</Typography>,
               ].map((x, i) => (
                 <React.Fragment key={i}>

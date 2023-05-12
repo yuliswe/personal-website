@@ -12,7 +12,7 @@ export const projects = [
     role: "Author",
     description: `An innovative architecture to managing application state in React-Redux, allowing clear separation between business logics and the data layer.
        In AppEvent Redux, Each AppEvent such as a user click is highly coupled with a Redux action, in a way that it allows you to define the reducer directly on the AppEvent class, making the code a lot easier to read.`,
-    url: "https://github.com/ylilarry/react-appevent-redux",
+    url: "https://github.com/yuliswe/react-appevent-redux",
     keywords: ["react", "redux"],
   },
 ];
