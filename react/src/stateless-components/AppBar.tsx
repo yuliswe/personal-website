@@ -1,15 +1,8 @@
-import React from "react";
-import * as Material from "@mui/material";
-import {
-  Button,
-  Icon,
-  IconButton,
-  Link,
-  Toolbar,
-  Typography,
-} from "@mui/material";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
+import * as Material from "@mui/material";
+import { IconButton, Link, Toolbar, Typography } from "@mui/material";
+import React from "react";
 export class AppBar extends React.Component {
   render() {
     return (

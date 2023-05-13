@@ -1,4 +1,4 @@
-import { Box, Grid, Link, Stack, Typography } from "@mui/material";
+import { Box, Grid, Link, Typography } from "@mui/material";
 import React from "react";
 import { mediaQuery } from "../AppContext";
 

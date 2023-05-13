@@ -43,7 +43,7 @@ function splitPages(
   const { top } = n.getBoundingClientRect();
   let goodBottom = top; // keep track of the bottom of the last element that fit on the page
   let followNext: Element | null = null;
-  let pageStartY = top;
+  // let pageStartY = top;
   let pageEndY = top + pageHeight;
   function _insertSpace(n: Element) {
     for (let child of n.children) {
@@ -85,7 +85,7 @@ function splitPages(
           const spaceHeight = pageEndY - goodBottom + vMargin;
           space.style.height = `${spaceHeight}px`;
           n.insertBefore(space, firstItemInNextPage);
-          pageStartY = pageEndY;
+          // pageStartY = pageEndY;
           pageEndY += pageHeight;
         } else {
           _insertSpace(child);

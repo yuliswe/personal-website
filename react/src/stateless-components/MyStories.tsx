@@ -1,8 +1,7 @@
-import { Image } from "@mui/icons-material";
 import { Box, Stack, Typography } from "@mui/material";
 import React from "react";
-import { keywordShouldShow } from "../utils";
 import { MyStory } from "../text/stories";
+import { keywordShouldShow } from "../utils";
 
 type _Props = {
   stories: MyStory[];

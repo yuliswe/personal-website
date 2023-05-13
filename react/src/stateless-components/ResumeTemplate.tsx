@@ -1,4 +1,4 @@
-import { Box, Container, Link, Paper, Typography } from "@mui/material";
+import { Box, Paper, Typography } from "@mui/material";
 import { Stack } from "@mui/system";
 import React from "react";
 import { ResumeExperience } from "./ResumeExperience";
@@ -9,16 +9,14 @@ import { ResumeSection } from "./ResumeSection";
 //     children: React.ReactNode,
 // }
 
-import employmentData from "../text/employment";
-import educationData from "../text/education";
-import skillData from "../text/skills";
-import { ResumeSkills } from "./ResumeSkills";
 import { mediaQuery } from "../AppContext";
 import { Config } from "../config";
-import { keywordShouldShow } from "../utils";
+import educationData from "../text/education";
+import employmentData from "../text/employment";
 import { projects } from "../text/projects";
-import { ResumeProject } from "./ResumeProject";
 import { skillsSummary } from "../text/skills-summary";
+import { keywordShouldShow } from "../utils";
+import { ResumeProject } from "./ResumeProject";
 
 type _Props = {
   fixedMargin?: string; // ignore responsive margins

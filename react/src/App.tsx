@@ -1,14 +1,13 @@
-import { HomePage } from "./connected-components/HomePage";
-import { ThemeProvider, createTheme } from "@mui/material/styles";
-import { CssBaseline } from "@mui/material";
 import "@fontsource/roboto/300.css";
 import "@fontsource/roboto/400.css";
 import "@fontsource/roboto/500.css";
 import "@fontsource/roboto/700.css";
 import "@fontsource/roboto/900.css";
-import "./App.scss";
+import { CssBaseline } from "@mui/material";
+import { ThemeProvider, createTheme } from "@mui/material/styles";
 import useMediaQuery from "@mui/material/useMediaQuery";
-import { AppContextType } from "./AppContext";
+import React from "react";
+import { HelmetProvider } from "react-helmet-async";
 import {
   RouterProvider,
   createBrowserRouter,
@@ -17,8 +16,8 @@ import {
   useParams,
   useSearchParams,
 } from "react-router-dom";
-import React from "react";
-import { HelmetProvider } from "react-helmet-async";
+import "./App.scss";
+import { AppContextType } from "./AppContext";
 import { ResumePage } from "./connected-components/ResumePage";
 
 const router = createBrowserRouter([

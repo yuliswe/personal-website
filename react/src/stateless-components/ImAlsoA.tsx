@@ -1,4 +1,4 @@
-import { Box, Chip, Link, Stack, Typography } from "@mui/material";
+import { Box, Chip, Stack, Typography } from "@mui/material";
 import React, { MouseEvent } from "react";
 import interests from "../text/interests";
 import { intersects } from "../utils";

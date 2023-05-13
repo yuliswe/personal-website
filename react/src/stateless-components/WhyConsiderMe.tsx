@@ -1,13 +1,4 @@
-import { Image } from "@mui/icons-material";
-import {
-  Box,
-  Card,
-  CardContent,
-  CardMedia,
-  Paper,
-  Stack,
-  Typography,
-} from "@mui/material";
+import { Box, Typography } from "@mui/material";
 import React from "react";
 
 type _Props = {

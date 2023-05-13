@@ -1,8 +1,7 @@
-import { Image } from "@mui/icons-material";
-import { Box, Card, CardMedia, Grid, Stack, Typography } from "@mui/material";
+import { Card, CardMedia, Grid, Typography } from "@mui/material";
 import React from "react";
+import { AppContext, AppContextType } from "../AppContext";
 import photo from "../photo.jpg";
-import { AppContextType, AppContext } from "../AppContext";
 export class IntroduceSelf extends React.Component {
   static contextType = AppContextType;
 

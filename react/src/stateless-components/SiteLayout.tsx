@@ -1,4 +1,4 @@
-import { Box, Container, Paper, Stack } from "@mui/material";
+import { Box, Container, Paper } from "@mui/material";
 import React from "react";
 import { AppContext, AppContextType } from "../AppContext";
 
